@@ -1,0 +1,65 @@
+[
+    {
+        "name": "首页",
+        "icon": "home",
+        "link": "/demo"
+    },
+    {
+        "name": "基础数据",
+        "icon": "star",
+        "submenu": [
+            {
+                "name": "人员管理",
+                "icon": "person",
+                "submenu": [
+                    {
+                        "name": "人员管理三级",
+                        "icon": "person",
+                        "link": "/demo1"
+                    },
+                    {
+                        "name": "人员管理三级",
+                        "icon": "keyboard_arrow_right",
+                        "link": "/demo2"
+                    }
+                ]
+            },
+            {
+                "name": "部门管理",
+                "icon": "view_module",
+                "link": "/demo3"
+            }
+        ]
+    },
+    {
+        "name": "邮件系统",
+        "icon": "email",
+        "submenu": [
+            {
+                "name": "收件箱",
+                "icon": "email",
+                "link": "/inbox"
+            },
+            {
+                "name": "发件箱",
+                "icon": "email",
+                "link": "/outbox"
+            },
+            {
+                "name": "草稿箱",
+                "icon": "email",
+                "link": "/draft_box"
+            },
+            {
+                "name": "邮件标签",
+                "icon": "email",
+                "link": "/email_label"
+            },
+            {
+                "name": "通讯录",
+                "icon": "group",
+                "link": "/email_group"
+            }
+        ]
+    }
+]

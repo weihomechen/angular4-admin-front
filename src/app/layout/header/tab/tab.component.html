@@ -1,0 +1,20 @@
+<md2-tabs [selectedIndex]="tabControlServiceModal.activeTab">
+    <md2-tab [reallyTab]="menuTab" *ngFor="let menuTab of tabControlServiceModal.tabs">
+        <template md2-tab-label>
+            <a [routerLink]='menuTab.link' routerLinkActive="active">{{menuTab.name}}</a>
+            <i *ngIf="menuTab.link !== '/home'" class="material-icons" (click)="closeTab(menuTab)">close</i>
+        </template>
+    </md2-tab>
+
+</md2-tabs>
+
+<button mdl-button #btn1="mdlButton" (click)="m1.toggle($event, btn1)" id="tab_manage_btn" mdl-ripple>
+        <mdl-icon></mdl-icon>
+    </button>
+<mdl-menu #m1="mdlMenu" mdl-menu-position="bottom-right">
+    <mdl-menu-item mdl-ripple mdl-menu-item-full-bleed-divider (click)="closeAll()">关闭所有选项卡</mdl-menu-item>
+    <mdl-menu-item *ngFor="let tab of tabControlServiceModal.tabs" (click)="goToTab(tab)" mdl-ripple mdl-menu-item-full-bleed-divider>
+        <a [routerLink]='tab.link'>{{tab.name}}</a>
+        <!--<i *ngIf="tab.link !== '/test1'" class="material-icons" (click)="closeTab(tab)">close</i>-->
+    </mdl-menu-item>
+</mdl-menu>

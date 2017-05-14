@@ -1,3 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
-@import "../node_modules/material-design-lite/dist/material.light_blue-light_green.min.css";
+@import "../node_modules/material-design-lite/dist/material.blue-cyan.min.css";
 @import "../node_modules/material-design-icons/iconfont/material-icons.css";
+
+a { 
+    text-decoration: none;
+    color: rgba(0,0,0,.8);
+}

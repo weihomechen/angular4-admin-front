@@ -1,3 +1,23 @@
-<p>
-  nav works!
-</p>
+<mdl-layout mdl-layout-fixed-drawer mdl-layout-no-drawer-button #nav="mdlLayout">
+    <mdl-layout-drawer>
+        <ul class="mdl-navigation">
+            <li *ngFor="let menu of menus" class="top-menu-item">
+                <a [routerLink]="menu.link" routerLinkActive="active" class="mdl-navigation__link top-menu-link" (click)="openTopMenuTab(menu,secondNav,expandIcon)">
+                    <i class="material-icons ">{{menu.icon}}</i>{{menu.name}}
+                    <i  class="material-icons isexpand" #expandIcon>keyboard_arrow_left</i></a>
+                <ul class="mdl-navigation second-nav" [hidden]="ishidden" #secondNav>
+                    <li *ngFor="let secondMenu of menu.submenu" (mouseover)="thirdMenuToggle(secondNav,thirdNav)" (mouseout)="thirdMenuToggle(secondNav,thirdNav)"
+                        class="secMenuItme" #secMenu>
+                        <a [routerLink]="secondMenu.link" routerLinkActive="active" class="mdl-navigation__link second-menu-link" (click)="openSecMenuTab(secondMenu)">
+                            <i class="material-icons ">{{secondMenu.icon}}</i>{{secondMenu.name}}</a>
+                        <ul class="third-menu-nav mdl-navigation" [hidden]="ishidden" #thirdNav>
+                            <li *ngFor="let thirdMenu of secondMenu.submenu">
+                                <a [routerLink]="thirdMenu.link" routerLinkActive="active" class="mdl-navigation__link third-menu-link" (click)="openThirdMenuTab(thirdMenu,secondNav,expandIcon)"><i class="material-icons">chevron_right</i>{{thirdMenu.name}}</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </mdl-layout-drawer>
+</mdl-layout>

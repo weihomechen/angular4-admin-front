@@ -1,3 +1,17 @@
-<p>
-  header works!
-</p>
+<mdl-layout-header-row class="header-top-row">
+    <mdl-layout-title></mdl-layout-title>
+    <mdl-layout-spacer></mdl-layout-spacer>
+    <!-- Navigation. We hide it in small screens. -->
+    <nav class="mdl-navigation ">
+        <button mdl-button #btn1="mdlButton" (click)="m1.toggle($event, btn1)" mdl-button-type="icon" mdl-ripple><mdl-icon>account_circle</mdl-icon></button>
+        <mdl-menu #m1="mdlMenu" mdl-menu-position="bottom-right">
+            <mdl-menu-item disabled mdl-ripple mdl-menu-item-full-bleed-divider>admin</mdl-menu-item>
+            <mdl-menu-item class="mdl-color-text--grey-600">
+                <mdl-icon>lock</mdl-icon>修改密码</mdl-menu-item>
+        </mdl-menu>
+        <a class="mdl-navigation-link">退出</a>
+    </nav>
+</mdl-layout-header-row>
+<mdl-layout-header-row class="header-bottom-row">
+    <app-layout-tab class="tabs-container"></app-layout-tab>
+</mdl-layout-header-row>
