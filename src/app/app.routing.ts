@@ -10,7 +10,7 @@ import { Demo3Component } from './demo/demo3/demo3.component';
 const appRoutes: Routes = [
     {
         path: '',
-        redirectTo: 'demo',
+        redirectTo: '/home',
         pathMatch: 'full'
     },
     { path: 'demo1', component: Demo1Component },

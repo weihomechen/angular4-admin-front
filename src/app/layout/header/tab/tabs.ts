@@ -17,6 +17,8 @@ import {
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
+
+import { ShareModule } from '../../../share/share.module';
 import { MdlModule } from '@angular-mdl/core';
 
 import { TabControlServiceModal } from './TabControlServiceModal';
@@ -85,41 +87,22 @@ export class Md2TabLabel {
                 [class.disabled]="tab.disabled" (click)="goToTab(tab.reallyTab)">
             <span [md2Transclude]="tab.labelRef">{{tab.label}}</span>
           </div>
-          <div class="md2-tab-ink-bar" [style.left]="inkBarLeft" [style.width]="inkBarWidth"></div>
+          <button mdl-button #btn1="mdlButton" (click)="m1.toggle($event, btn1)" id="tab_manage_btn" mdl-ripple>
+             <i class="fa fa-sort-down fa-lg white"></i>
+          </button>
+          <mdl-menu #m1="mdlMenu" mdl-menu-position="bottom-left">
+             <mdl-menu-item mdl-ripple mdl-menu-item-full-bleed-divider (click)="reloadNow()">刷新当前页</mdl-menu-item>
+             <mdl-menu-item mdl-ripple mdl-menu-item-full-bleed-divider (click)="closeAll()">关闭所有选项卡</mdl-menu-item>
+             <mdl-menu-item mdl-ripple mdl-menu-item-full-bleed-divider (click)="closeOther()">关闭其它选项卡</mdl-menu-item>
+             <mdl-menu-item mdl-ripple mdl-menu-item-full-bleed-divider (click)="closeNow()">关闭当前选项卡</mdl-menu-item>
+          </mdl-menu>
+          <div class="md2-tab-ink-bars" [style.left]="inkBarLeft" [style.width]="inkBarWidth"></div>
         </div>
       </div>
        
     </div>
   `,
-    styles: [`
-    md2-tabs { position: absolute; left: 240px; top: 36px; overflow: hidden; display: block; margin-right: 45px; border-radius: 2px; }
-    .md2-tabs-header-wrapper { position: relative; display: block; height: 35px; border-radius: 5px 5px 0 0; display: block; margin: 0; padding: 0; list-style: none; 
-        -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; }
-    .md2-tabs-header-wrapper:after { content: ''; display: table; clear: both; }
-    .md2-prev-button,
-    .md2-next-button { position: absolute; top: 0; height: 100%; width: 32px; padding: 10px 0; z-index: 2; cursor: pointer; }
-    .md2-prev-button { left: 0; }
-    .md2-next-button { right: 0; }
-    .md2-prev-button.disabled,
-    .md2-next-button.disabled { opacity: .4; cursor: default; }
-    .md2-prev-button .prev-icon,
-    .md2-next-button .next-icon { display: block; width: 10px; height: 10px; font-size: 0; border-width: 0 0 2px 2px; 
-        border-style: solid; border-color: #757575; border-radius: 1px; transform: rotate(45deg); margin: 8px; }
-    .md2-next-button .next-icon { border-width: 2px 2px 0 0; }
-    .md2-tabs-canvas { position: relative; height: 100%; overflow: hidden; display: block; outline: none; }
-    .md2-tabs-canvas.md2-paginated { margin: 0 32px; }
-    .md2-tabs-header { position: relative; display: inline-block; height: 100%; white-space: nowrap; -moz-transition: 0.5s cubic-bezier(0.35,0,0.25,1); -o-transition: 0.5s cubic-bezier(0.35,0,0.25,1); -webkit-transition: 0.5s cubic-bezier(0.35,0,0.25,1); transition: 0.5s cubic-bezier(0.35,0,0.25,1); }
-    .md2-tab-label { position: relative; height: 100%; color: rgba(0,0,0,0.54); font-size: 14px; text-align: center; line-height: 24px; border-radius: 5px 5px 0 0 ; padding: 4px 20px; -moz-transition: background-color .35s cubic-bezier(.35,0,.25,1); -o-transition: background-color .35s cubic-bezier(.35,0,.25,1); -webkit-transition: background-color .35s cubic-bezier(.35,0,.25,1); transition: background-color .35s cubic-bezier(.35,0,.25,1); cursor: pointer; white-space: nowrap; text-transform: uppercase; display: inline-block; font-weight: 500; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; overflow: hidden; -ms-text-overflow: ellipsis; -o-text-overflow: ellipsis; text-overflow: ellipsis; }
-    .md2-tab-label.active { background-color: #fff; }
-     .md2-tab-label a { font-size:16px; vertical-align: super;}
-    .md2-tabs-canvas:focus .md2-tab-label.focus { background: rgba(0,0,0,0.05); }
-    .md2-tab-label.disabled { color: rgba(0,0,0,0.26); pointer-events: none; -webkit-user-select: none; -moz-user-select: none; 
-        -ms-user-select: none; user-select: none; -webkit-user-drag: none; opacity: 0.5; cursor: default; }
-    .md2-tab-ink-bar { position: absolute; bottom: 0; height: 2px; background: rgb(255,82,82); transition: .25s cubic-bezier(.35,0,.25,1); }
-    .md2-tabs-body-wrapper { position: relative; min-height: 0; display: block; clear: both; }
-    md2-tab { padding: 16px; display: none; position: relative; }
-    md2-tab.active { display: block; position: relative; }
-  `],
+    styleUrls: ['tab.component.css'],
     host: {
         '[class]': 'class',
         '(window:resize)': 'onWindowResize($event)'
@@ -135,10 +118,7 @@ export class Md2Tabs implements OnInit, AfterContentInit {
     private offsetLeft = 0;
     private inkBarLeft = '0';
     private inkBarWidth = '0';
-    tabControlServiceModal: TabControlServiceModal = {
-        tabs: [{ 'name': '收件箱', 'link': '/inbox' }],
-        activeTab: 0
-    };
+    tabControlServiceModal: TabControlServiceModal;
     @Input() class: string;
     @Input()
     set selectedIndex(value: any) {
@@ -196,6 +176,33 @@ export class Md2Tabs implements OnInit, AfterContentInit {
         }
     }
 
+    // tab管理菜单
+    // 关闭所有页面
+    closeAll() {
+        this.tabControlServiceModal.tabs.length = 1;
+        this.tabControlServiceModal.activeTab = 0;
+    }
+
+    // 关闭其它页面
+    closeOther() {
+        let retainList = [],
+            currentTabIndex = this.tabControlServiceModal.activeTab;
+        retainList.push(this.tabControlServiceModal.tabs[0]);
+        retainList.push(this.tabControlServiceModal.tabs[currentTabIndex]);
+        this.tabControlServiceModal.tabs = retainList;
+        this.tabControlServiceModal.activeTab = 1;
+    }
+
+    // 关闭当前页面
+    closeNow() {
+        const index = this.tabControlServiceModal.activeTab;
+        if (index === 0) {
+            return
+        }
+        this.tabControlServiceModal.tabs.splice(index, 1);
+        this.tabControlServiceModal.activeTab = index - 1;
+    }
+
     /**
      * 判断激活的Tab并调整Tabs的位移，不存在时设为默认
      */
@@ -222,10 +229,12 @@ export class Md2Tabs implements OnInit, AfterContentInit {
     /**
      * 激活的Tab下边框计算
      */
-    _updateInkBar(): void {
+    _updateInkBar(activeIndex?: number): void {
         const elements = this.element;
         if (!elements.tabs[this.tabControlServiceModal.activeTab]) { return; }
-        const tab = elements.tabs[this.tabControlServiceModal.activeTab];
+        debugger
+        const index = activeIndex || this.tabControlServiceModal.activeTab;
+        const tab = elements.tabs[index];
         this.inkBarLeft = tab.offsetLeft + 'px';
         this.inkBarWidth = tab.offsetWidth + 'px';
     }
@@ -367,7 +376,7 @@ export const MD2_TABS_DIRECTIVES: any[] = [Md2TabLabel, Md2Tabs, Md2Tab];
 
 @NgModule({
     declarations: [Md2Transclude, Md2TabLabel, Md2Tabs, Md2Tab],
-    imports: [CommonModule],
+    imports: [CommonModule, MdlModule],
     exports: MD2_TABS_DIRECTIVES,
 })
 export class Md2TabsModule {
