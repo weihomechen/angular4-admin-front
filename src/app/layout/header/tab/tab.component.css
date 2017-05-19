@@ -16,8 +16,9 @@
     .md2-tabs-canvas { position: relative; height: 100%; /*overflow: hidden;*/ display: block; outline: none; }
     .md2-tabs-canvas.md2-paginated { margin: 0 32px; }
     .md2-tabs-header { position: relative; display: inline-block; height: 100%; white-space: nowrap; -moz-transition: 0.5s cubic-bezier(0.35,0,0.25,1); -o-transition: 0.5s cubic-bezier(0.35,0,0.25,1); -webkit-transition: 0.5s cubic-bezier(0.35,0,0.25,1); transition: 0.5s cubic-bezier(0.35,0,0.25,1); }
-    .md2-tab-label { position: relative; height: 100%; color: rgba(0,0,0,0.54); font-size: 14px; text-align: center; line-height: 24px; border-radius: 5px 5px 0 0 ; padding: 4px 20px; -moz-transition: background-color .35s cubic-bezier(.35,0,.25,1); -o-transition: background-color .35s cubic-bezier(.35,0,.25,1); -webkit-transition: background-color .35s cubic-bezier(.35,0,.25,1); transition: background-color .35s cubic-bezier(.35,0,.25,1); cursor: pointer; white-space: nowrap; text-transform: uppercase; display: inline-block; font-weight: 500; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; overflow: hidden; -ms-text-overflow: ellipsis; -o-text-overflow: ellipsis; text-overflow: ellipsis; }
+    .md2-tab-label { position: relative; height: 100%; color: #fff!important; font-size: 14px; text-align: center; line-height: 30px; border-radius: 5px 5px 0 0 ; padding: 4px 20px; -moz-transition: background-color .35s cubic-bezier(.35,0,.25,1); -o-transition: background-color .35s cubic-bezier(.35,0,.25,1); -webkit-transition: background-color .35s cubic-bezier(.35,0,.25,1); transition: background-color .35s cubic-bezier(.35,0,.25,1); cursor: pointer; white-space: nowrap; text-transform: uppercase; display: inline-block; font-weight: 500; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; overflow: hidden; -ms-text-overflow: ellipsis; -o-text-overflow: ellipsis; text-overflow: ellipsis; }
     .md2-tab-label.active { background-color: #fff; }
+    .md2-tab-label.active a { color: #000; }
      .md2-tab-label a { font-size:16px; vertical-align: super;}
     .md2-tabs-canvas:focus .md2-tab-label.focus { background: rgba(0,0,0,0.05); }
     .md2-tab-label.disabled { color: rgba(0,0,0,0.26); pointer-events: none; -webkit-user-select: none; -moz-user-select: none; 
@@ -27,6 +28,7 @@
     md2-tab { padding: 16px; display: none; position: relative; }
     md2-tab.active { display: block; position: relative;}
     .white {color:#fff;} 
-    #tab_manage_btn {vertical-align: top;min-width:40px;}
+    #tab_manage_btn {vertical-align: top;min-width:40px;margin-left: -4px;}
     #tab_manage_btn .fa-lg {vertical-align: initial;}
+    .md2-tabs-header .mdl-button {padding: 0 10px;}
     

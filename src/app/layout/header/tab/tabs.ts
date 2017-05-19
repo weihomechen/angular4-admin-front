@@ -197,7 +197,7 @@ export class Md2Tabs implements OnInit, AfterContentInit {
     closeNow() {
         const index = this.tabControlServiceModal.activeTab;
         if (index === 0) {
-            return
+            return;
         }
         this.tabControlServiceModal.tabs.splice(index, 1);
         this.tabControlServiceModal.activeTab = index - 1;
@@ -232,7 +232,6 @@ export class Md2Tabs implements OnInit, AfterContentInit {
     _updateInkBar(activeIndex?: number): void {
         const elements = this.element;
         if (!elements.tabs[this.tabControlServiceModal.activeTab]) { return; }
-        debugger
         const index = activeIndex || this.tabControlServiceModal.activeTab;
         const tab = elements.tabs[index];
         this.inkBarLeft = tab.offsetLeft + 'px';

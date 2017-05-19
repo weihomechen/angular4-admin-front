@@ -19,9 +19,14 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
       "styles": [
-        "styles.css"
+        "styles.css",
+        "./src/assets/global/plugins/datatables/css/datatables.material.min.css"
       ],
-      "scripts": [],
+      "scripts": [
+        "node_modules/jquery/dist/jquery.min.js",
+        "./src/assets/global/plugins/datatables/js/jquery.datatables.js",
+        "./src/assets/global/plugins/datatables/js/datatables.material.js"
+      ],
       "environmentSource": "environments/environment.ts",
       "environments": {
         "dev": "environments/environment.ts",

@@ -3,8 +3,8 @@
         <ul class="mdl-navigation">
             <li *ngFor="let menu of menus" class="top-menu-item">
                 <a [routerLink]="menu.link" routerLinkActive="active" class="mdl-navigation__link top-menu-link" (click)="openTopMenuTab(menu,secondNav,expandIcon)">
-                    <i class="material-icons ">{{menu.icon}}</i>{{menu.name}}
-                    <i  class="material-icons isexpand" #expandIcon>keyboard_arrow_left</i></a>
+                    <i class="material-icons">{{menu.icon}}</i>{{menu.name}}
+                    <i class="material-icons isexpand" [hidden]="!menu.submenu"  #expandIcon>keyboard_arrow_left</i></a>
                 <ul class="mdl-navigation second-nav" [hidden]="ishidden" #secondNav>
                     <li *ngFor="let secondMenu of menu.submenu" (mouseover)="thirdMenuToggle(secondNav,thirdNav)" (mouseout)="thirdMenuToggle(secondNav,thirdNav)"
                         class="secMenuItme" #secMenu>
