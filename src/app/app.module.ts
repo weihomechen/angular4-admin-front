@@ -14,7 +14,9 @@ import { MdlModule } from '@angular-mdl/core';
 
 // 项目内模块
 import { LayoutModule } from './layout/layout.module';
-import { DemoModule } from './demo/demo.module';
+import { HomeModule } from './home/home.module';
+import { ShareModule } from './share/share.module';
+import { TabControlService } from './layout/header/tab/tabControl.service';
 
 @NgModule({
     declarations: [
@@ -29,11 +31,13 @@ import { DemoModule } from './demo/demo.module';
         MdlModule,
         // 项目内模块
         LayoutModule,
-        DemoModule,
+        HomeModule,
+        ShareModule,
         // App模块
         routing
     ],
     providers: [
+        TabControlService,
         { provide: RouteReuseStrategy, useClass: CustomReuseStrategy }
     ],
     bootstrap: [AppComponent]

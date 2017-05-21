@@ -1,0 +1,21 @@
+<div class="portlet">
+    <div class="portlet-header">
+    </div>
+    <form [formGroup]="form">
+        <mdl-textfield label="姓名" type="text" formControlName="name" floating-label></mdl-textfield>
+        <!--<mdl-select placeholder="性别" formControlName="sex">
+            <mdl-option [value]="man">男</mdl-option>
+            <mdl-option [value]="女">女</mdl-option>
+            <mdl-option [value]="人妖">人妖</mdl-option>
+        </mdl-select>-->
+        <mdl-textfield label="队伍" type="text" formControlName="team" floating-label></mdl-textfield>
+
+        <p>
+            <button mdl-button (click)="onSubmit()" [disabled]="!form.valid" mdl-button-type="raised" mdl-ripple mdl-colored="primary">Submit</button>
+        </p>
+    </form>
+    <mdl-checkbox [mdl-ripple]="true" [(ngModel)]="disableForm" (change)="onDisableForm($event)">
+        Disable the form.
+    </mdl-checkbox>
+
+</div>

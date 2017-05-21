@@ -9,8 +9,6 @@ import { TabComponent } from './header/tab/tab.component';
 import { Md2TabsModule } from "./header/tab/tabs";
 import { NavComponent } from './nav/nav.component';
 import { BodyComponent } from './body/body.component';
-
-import { TabControlService } from './header/tab/tabControl.service';
 import { MenuService } from './nav/menu.service';
 
 @NgModule({
@@ -19,8 +17,7 @@ import { MenuService } from './nav/menu.service';
     ],
     declarations: [HeaderComponent, BodyComponent, NavComponent, TabComponent],
     providers: [
-        MenuService,
-        TabControlService
+        MenuService
     ],
     exports: [
         HeaderComponent, NavComponent, BodyComponent

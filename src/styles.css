@@ -1,39 +1,72 @@
 /* You can add global styles to this file, and also import other style files */
-@import "../node_modules/material-design-lite/dist/material.blue-cyan.min.css";
-@import "../node_modules/material-design-icons/iconfont/material-icons.css";
+
 @import './assets/global/plugins/font-awesome-4.7.0/css/font-awesome.min.css';
+@import "./assets/global/css/material.blue-cyan.min.css";
+@import "../node_modules/material-design-icons/iconfont/material-icons.css";
 
 /*页面元素默认样式*/
-a { 
+
+a {
     text-decoration: none;
-    color: rgba(0,0,0,.8);
+    color: rgba(0, 0, 0, .8);
 }
 
+
 /*框架内类样式更改*/
-.mdl-layout__header {box-shadow: none;}
-.mdl-textfield__input {border-bottom: 1px solid rgba(0,0,0,.26);}
-.mdl-textfield__label {color:rgba(0,0,0,0.36);}
-.mdl-textfield {width:150px;margin: 0 8px;}
-.mdl-button:hover {
-    box-shadow: 0 3px 6px rgba(0,0,0,.2), 0 3px 6px rgba(0,0,0,.26);
+
+.mdl-layout__header {
+    box-shadow: none;
 }
-.mdl-data-table {width: 100%;}
-.mdl-data-table thead th:first-child {width: 30px;}
-.mdl-data-table th, .mdl-data-table td {
+
+.mdl-textfield__input {
+    border-bottom: 1px solid rgba(0, 0, 0, .26);
+}
+
+.mdl-textfield__label {
+    color: rgba(0, 0, 0, 0.36);
+}
+
+.mdl-textfield {
+    width: 150px;
+    margin: 0 8px;
+}
+
+.mdl-button:hover {
+    box-shadow: 0 3px 6px rgba(0, 0, 0, .2), 0 3px 6px rgba(0, 0, 0, .26);
+}
+
+.mdl-data-table {
+    width: 100%;
+}
+
+.mdl-data-table thead th:first-child {
+    width: 30px;
+}
+
+.mdl-data-table th,
+.mdl-data-table td {
     text-align: left;
 }
 
+
 /*全局类样式*/
+
+.portlet {
+    margin: 10px;
+}
+
 .portlet-header {
     margin: 4px 12px;
     border-top: 1px solid #eef1f5;
     border-bottom: 1px solid #eef1f5;
     box-shadow: 1px 2px 6px #ddd;
 }
+
 .portlet-body {
     padding: 8px 12px;
     border-radius: 0 0 2px 2px;
 }
+
 .display-list-container {
     min-height: 520px;
     min-width: 1105px;
@@ -46,14 +79,21 @@ a {
     padding: 0 8px;
 }
 
-.table-toolbar .toolbar-btns, .table-toolbar .toolbar-search {
+.table-footer .mdl-button {
+    min-width: 30px;
+    padding: 0 8px;
+    border-radius: 8px;
+}
+
+.table-toolbar .toolbar-btns,
+.table-toolbar .toolbar-search {
     margin-top: 1em;
     margin-left: 1em;
     display: inline-block;
 }
 
 .btn-add {
-    color:#fff;
+    color: #fff;
     background-color: #27a4b0;
     border-color: #208992;
 }
@@ -94,4 +134,28 @@ a {
     background-color: #32c5d2;
     border-color: #32c5d2;
     font-size: 16px;
+}
+
+.table-footer {
+    padding: 1em;
+}
+
+.table-footer span {
+    padding: 0 .2em;
+}
+
+.btn-prev {
+    color: #fff;
+    background-color: #29C6CD;
+    border-color: #208992;
+}
+
+.btn-next {
+    color: #fff;
+    background-color: #29C6CD;
+    border-color: #208992;
+}
+
+.table-target-page {
+    width: 25px;
 }

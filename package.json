@@ -13,6 +13,8 @@
   "private": true,
   "dependencies": {
     "@angular-mdl/core": "^4.0.3",
+    "@angular-mdl/popover": "^0.6.3",
+    "@angular-mdl/select": "^0.10.4",
     "@angular/common": "^4.0.0",
     "@angular/compiler": "^4.0.0",
     "@angular/core": "^4.0.0",

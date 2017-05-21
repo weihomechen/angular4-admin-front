@@ -1,5 +1,4 @@
-[
-    {
+[{
         "name": "首页",
         "icon": "home",
         "link": "/home"
@@ -7,35 +6,22 @@
     {
         "name": "基础数据",
         "icon": "star",
-        "submenu": [
-            {
+        "submenu": [{
                 "name": "人员管理",
                 "icon": "person",
-                "submenu": [
-                    {
-                        "name": "人员管理三级",
-                        "icon": "person",
-                        "link": "/demo1"
-                    },
-                    {
-                        "name": "人员管理三级",
-                        "icon": "keyboard_arrow_right",
-                        "link": "/demo2"
-                    }
-                ]
+                "link": "/base-data/person-list"
             },
             {
                 "name": "部门管理",
                 "icon": "view_module",
-                "link": "/demo3"
+                "link": "/base-data/dept-list"
             }
         ]
     },
     {
         "name": "邮件系统",
         "icon": "email",
-        "submenu": [
-            {
+        "submenu": [{
                 "name": "收件箱",
                 "icon": "email",
                 "link": "/inbox"
