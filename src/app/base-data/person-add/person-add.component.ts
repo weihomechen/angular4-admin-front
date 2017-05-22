@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 import { MdlModule } from '@angular-mdl/core';
-import { MdlSelectModule } from '@angular-mdl/select';
+
+declare var $: any;
 
 @Component({
     selector: 'app-person-add',
@@ -15,17 +16,25 @@ export class PersonAddComponent implements OnInit {
     public form: FormGroup;
     public name = new FormControl('', Validators.required);
     public team = new FormControl('', Validators.required);
-    // public sex = new FormControl('');
+    public sex = new FormControl('');
+    public account = new FormControl('', Validators.required);
+    public role = new FormControl('', Validators.required);
+    public position = new FormControl('');
 
     constructor(private fb: FormBuilder) {
         this.form = fb.group({
             'name': this.name,
             'team': this.team,
-            // 'sex': this.sex
+            'sex': this.sex,
+            'account': this.account,
+            'role': this.role,
+            'position': this.position
         });
     }
 
-    ngOnInit() { }
+    ngOnInit() {
+        $('.portlet').css('height', window.innerHeight - 120 + 'px');
+    }
 
     public onSubmit() {
         console.log(this.form);

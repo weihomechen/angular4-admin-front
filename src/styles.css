@@ -18,6 +18,10 @@ a {
     box-shadow: none;
 }
 
+.body-content {
+    width: 85%;
+}
+
 .mdl-textfield__input {
     border-bottom: 1px solid rgba(0, 0, 0, .26);
 }
@@ -53,6 +57,8 @@ a {
 
 .portlet {
     margin: 10px;
+    padding: 10px;
+    border: 1px solid #d2dae2;
 }
 
 .portlet-header {
@@ -67,12 +73,7 @@ a {
     border-radius: 0 0 2px 2px;
 }
 
-.display-list-container {
-    min-height: 520px;
-    min-width: 1105px;
-    margin: 10px;
-    border: 1px solid #d2dae2;
-}
+.display-list-container {}
 
 .toolbar-btns .mdl-button {
     min-width: 36px;
@@ -156,6 +157,37 @@ a {
     border-color: #208992;
 }
 
+.btn-submit {
+    color: #fff;
+    background-color: #29C6CD!important;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -1px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12)!important;
+}
+
 .table-target-page {
     width: 25px;
+}
+
+.display-form-header {
+    font-size: 18px;
+}
+
+.display-form-body {
+    margin: 8px;
+}
+
+.display-form-header i {
+    margin: 2px 5px;
+}
+
+.form-inline-item {
+    display: inline-block;
+}
+
+.diaplay-from-footer {
+    width: 88%;
+}
+
+.diaplay-from-footer button {
+    float: right;
+    margin-left: 15px;
 }
