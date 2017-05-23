@@ -161,6 +161,7 @@ export class Md2Tabs implements OnInit, AfterContentInit {
     ngOnInit(): void {
         this.tabControlServiceModal = this.tabControlService.tabControlServiceModal;
         this.element.canvas.style.width = 1240 + 'px';
+        this.router.navigateByUrl('home');
     }
 
     /**
