@@ -10,7 +10,7 @@ import { AppComponent } from './app.component';
 import { routing, CustomReuseStrategy } from './app.routing';
 
 // 第三方模块
-import { MdlModule } from '@angular-mdl/core';
+import 'hammerjs';
 
 // 项目内模块
 import { LayoutModule } from './layout/layout.module';
@@ -27,8 +27,6 @@ import { TabControlService } from './layout/header/tab/tabControl.service';
         BrowserModule,
         FormsModule,
         HttpModule,
-        // 第三方模块
-        MdlModule,
         // 项目内模块
         LayoutModule,
         HomeModule,

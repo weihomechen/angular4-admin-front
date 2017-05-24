@@ -10,8 +10,7 @@ export class AppComponent implements OnInit {
     ngOnInit() {
         const windowWidth = window.innerWidth,
             windowHeight = window.innerHeight;
-        $('app-layout-body').css('width', windowWidth - 280 + 'px');
-        $('app-layout-body').css('height', windowHeight - 180 + 'px');
-
+        $('.app-body, .body-footer').css('width', windowWidth - 246 + 'px');
+        $('.app-body').css('height', windowHeight - 121 + 'px');
     }
 }

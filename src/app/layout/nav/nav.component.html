@@ -1,13 +1,12 @@
-<mdl-layout mdl-layout-fixed-drawer mdl-layout-no-drawer-button #nav="mdlLayout">
+<mdl-layout mdl-layout-fixed-drawer>
     <mdl-layout-drawer>
         <ul class="mdl-navigation">
             <li *ngFor="let menu of menus" class="top-menu-item">
                 <a [routerLink]="menu.link" routerLinkActive="active" class="mdl-navigation__link top-menu-link" (click)="openTopMenuTab(menu,secondNav,expandIcon)">
                     <i class="material-icons">{{menu.icon}}</i>{{menu.name}}
-                    <i class="material-icons isexpand" [hidden]="!menu.submenu"  #expandIcon>keyboard_arrow_left</i></a>
+                    <i class="material-icons isexpand" [hidden]="!menu.submenu" #expandIcon>keyboard_arrow_left</i></a>
                 <ul class="mdl-navigation second-nav" [hidden]="ishidden" #secondNav>
-                    <li *ngFor="let secondMenu of menu.submenu" (mouseover)="thirdMenuToggle(secondNav,thirdNav)" (mouseout)="thirdMenuToggle(secondNav,thirdNav)"
-                        class="secMenuItme" #secMenu>
+                    <li *ngFor="let secondMenu of menu.submenu" (mouseover)="thirdMenuToggle(secondNav,thirdNav)" (mouseout)="thirdMenuToggle(secondNav,thirdNav)" class="secMenuItme" #secMenu>
                         <a [routerLink]="secondMenu.link" routerLinkActive="active" class="mdl-navigation__link second-menu-link" (click)="openSecMenuTab(secondMenu)">
                             <i class="material-icons ">{{secondMenu.icon}}</i>{{secondMenu.name}}</a>
                         <ul class="third-menu-nav mdl-navigation" [hidden]="ishidden" #thirdNav>

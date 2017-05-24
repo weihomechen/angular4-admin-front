@@ -1,9 +1,9 @@
 <md2-tabs [selectedIndex]="tabControlServiceModal.activeTab">
     <md2-tab [reallyTab]="menuTab" *ngFor="let menuTab of tabControlServiceModal.tabs">
-        <template md2-tab-label>
+        <ng-template md2-tab-label>
             <a [routerLink]='menuTab.link' routerLinkActive="active">{{menuTab.name}}</a>
             <i *ngIf="menuTab.link !== '/home'" class="material-icons" (click)="closeTab(menuTab)">close</i>
-        </template>
+        </ng-template>
     </md2-tab>
 
 </md2-tabs>

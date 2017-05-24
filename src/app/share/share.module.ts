@@ -2,13 +2,16 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { MdlModule } from '@angular-mdl/core';
+import { MaterialModule } from '@angular/material';
+
 
 @NgModule({
     imports: [
         CommonModule,
-        MdlModule
+        MdlModule,
+        MaterialModule
     ],
     declarations: [],
-    exports: [MdlModule]
+    exports: [MdlModule, MaterialModule]
 })
 export class ShareModule { }

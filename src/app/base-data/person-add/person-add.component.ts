@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
-import { MdlModule } from '@angular-mdl/core';
 import { PersonManageService } from '../person-manage.service';
 import { TabControlService } from '../../layout/header/tab/tabControl.service';
 
@@ -24,6 +23,10 @@ export class PersonAddComponent implements OnInit {
     public account = new FormControl('', Validators.required);
     public role = new FormControl('', Validators.required);
     public position = new FormControl('');
+    public genders = [
+        { value: '0', viewValue: '男' },
+        { value: '1', viewValue: '女' }
+    ];
 
     constructor(private fb: FormBuilder,
         private route: Router,
@@ -47,7 +50,7 @@ export class PersonAddComponent implements OnInit {
 
     public onSubmit() {
         console.log(this.form);
-        this.personManageService.addPerson(this.form).then(() => SweetAlert.alert('新增人员成功'))
+        // this.personManageService.addPerson(this.form).then(() => SweetAlert.alert('新增人员成功'))
     }
 
     cancel() {

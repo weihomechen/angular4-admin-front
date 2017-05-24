@@ -1,10 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
 
+@import '../node_modules/material-design-lite/dist/material-grid.min.css';
+@import "./assets/global/css/material.blue-cyan.min.css";
 @import './assets/global/plugins/font-awesome-4.7.0/css/font-awesome.min.css';
 @import "./assets/global/plugins/bootstrap/css/bootstrap.min.css";
-@import "./assets/global/css/material.blue-cyan.min.css";
 @import "../node_modules/material-design-icons/iconfont/material-icons.css";
-@import  "./assets/global/plugins/sweet-alert/sweetalert.css";
+@import "./assets/global/plugins/sweet-alert/sweetalert.css";
 
 /*页面元素默认样式*/
 
@@ -13,15 +14,24 @@ a {
     color: rgba(0, 0, 0, .8);
 }
 
-a:focus, a:hover {
+a:focus,
+a:hover {
     text-decoration: none;
 }
 
-dt, kbd kbd, label {
+dt,
+kbd kbd,
+label {
     font-weight: 400;
 }
 
+
 /*框架内类样式更改*/
+
+app-layout-body {
+    position: absolute;
+    left: 240px;
+}
 
 .mdl-layout__header {
     box-shadow: none;
@@ -68,10 +78,14 @@ dt, kbd kbd, label {
 
 /*全局类样式*/
 
+.body-footer {
+    height: 40px;
+    background-color: rgba(194, 250, 241, .3);
+}
+
 .portlet {
     margin: 10px;
     padding: 10px;
-    border: 1px solid #d2dae2;
 }
 
 .portlet-header {
@@ -187,13 +201,13 @@ dt, kbd kbd, label {
 }
 
 .from-title {
-    color: rgba(226,106,106,1);
+    color: rgba(226, 106, 106, 1);
 }
 
 .display-form-body {
     margin: 8px;
     border: 1px solid #e7ecf1;
-    box-shadow: 0 2px 3px 2px rgba(0,0,0,.03);
+    box-shadow: 0 2px 3px 2px rgba(0, 0, 0, .03);
 }
 
 .display-form-header i {

@@ -1,27 +1,29 @@
 @font-face {
-  font-family: 'openSans';
-  src: url('/assets/open sans/OpenSans-Light.ttf');
+    font-family: 'openSans';
+    src: url('/assets/open sans/OpenSans-Light.ttf');
 }
 
 * {
-  margin: 0;
-  padding: 0;
+    margin: 0;
+    padding: 0;
 }
 
 ul {
-  list-style: none;
+    list-style: none;
 }
 
-a,a:visited {
+a,
+a:visited {
     transition: color 0s;
 }
-.mdl-layout__drawer .mdl-navigation .top-menu-link{
-  padding: 12px 10px;
-  font-size: 15px;  
+
+.mdl-layout__drawer .mdl-navigation .top-menu-link {
+    padding: 10px 8px;
+    font-size: 15px;
 }
 
 .mdl-layout__drawer .mdl-navigation .second-menu-link {
-    padding: 10px 10px;
+    padding: 8px;
 }
 
 .mdl-navigation__link .material-icons {
@@ -33,63 +35,62 @@ a,a:visited {
 }
 
 .mdl-layout__drawer {
-  overflow-y: visible;
-  background: #fff;
-  height: auto;
-  min-height:100%;
-  max-height: none;
-  z-index: 5;
+    overflow-y: visible;
+    background: #FFFDFB;
+    height: auto;
+    min-height: 100%;
+    max-height: none;
+    z-index: 5;
 }
 
 .mdl-layout__drawer .mdl-navigation {
-  padding-top: 0;
+    padding-top: 0;
 }
 
 .mdl-layout__drawer .mdl-navigation__link {
-  padding-left: 10px;
-  color: darkslategrey;
-  cursor: pointer;
+    padding-left: 10px;
+    color: darkslategrey;
+    cursor: pointer;
 }
 
 .mdl-layout__drawer .mdl-navigation .mdl-navigation__link:hover {
-  background-color:darkcyan;
-  color: #fff;
-  text-decoration: none;
+    background-color: darkcyan;
+    color: #fff;
+    text-decoration: none;
 }
 
-
 .mdl-layout__drawer .mdl-navigation .third-menu-link:hover {
-  color: rgb(255,255,255);
-  background-color:rgb(28,175,154);
-  text-decoration: none;  
+    color: rgb(255, 255, 255);
+    background-color: rgb(28, 175, 154);
+    text-decoration: none;
 }
 
 .top-menu-item a i {
-  padding-right: 20px;
+    padding-right: 20px;
 }
 
 .isexpand {
-  position: absolute;
-  right: 10px;
+    position: absolute;
+    right: 10px;
 }
 
 .second-nav {
-  padding-left: 35px;
+    padding-left: 35px;
 }
 
 .secMenuItme {
-  position: relative;
+    position: relative;
 }
 
 .third-menu-nav {
-  position: absolute;
-  top: 0px;
-  box-shadow: 0 0 4px #000; 
+    position: absolute;
+    top: 0px;
+    box-shadow: 0 0 4px #000;
 }
 
 .mdl-layout__drawer .mdl-navigation .third-menu-link {
-  width: 200px;
-  padding: 6px 0px;
-  background-color: #fff;
-  opacity: 1;
+    width: 200px;
+    padding: 4px 0px;
+    background-color: #fff;
+    opacity: 1;
 }
