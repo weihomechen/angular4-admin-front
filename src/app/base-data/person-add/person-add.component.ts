@@ -1,9 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 import { MdlModule } from '@angular-mdl/core';
+import { PersonManageService } from '../person-manage.service';
+import { TabControlService } from '../../layout/header/tab/tabControl.service';
 
 declare var $: any;
+declare var SweetAlert: any;
 
 @Component({
     selector: 'app-person-add',
@@ -21,7 +25,11 @@ export class PersonAddComponent implements OnInit {
     public role = new FormControl('', Validators.required);
     public position = new FormControl('');
 
-    constructor(private fb: FormBuilder) {
+    constructor(private fb: FormBuilder,
+        private route: Router,
+        private TabControlService: TabControlService,
+        private personManageService: PersonManageService
+    ) {
         this.form = fb.group({
             'name': this.name,
             'team': this.team,
@@ -36,8 +44,15 @@ export class PersonAddComponent implements OnInit {
         $('.portlet').css('height', window.innerHeight - 120 + 'px');
     }
 
+
     public onSubmit() {
         console.log(this.form);
+        this.personManageService.addPerson(this.form).then(() => SweetAlert.alert('新增人员成功'))
+    }
+
+    cancel() {
+        this.route.navigateByUrl('/base-data/person-list');
+        this.TabControlService.closeTab({ name: '新增人员', link: '/base-data/person-add' });
     }
 
     public onDisableForm(formDisabled: boolean) {

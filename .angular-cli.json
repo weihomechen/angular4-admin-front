@@ -21,7 +21,9 @@
             "styles.css"
         ],
         "scripts": [
-            "../node_modules/jquery/dist/jquery.min.js"
+            "../node_modules/jquery/dist/jquery.min.js",
+            "./assets/global/plugins/sweet-alert/sweetalert.min.js",
+            "./assets/global/scripts/sweetalert.js"
         ],
         "environmentSource": "environments/environment.ts",
         "environments": {
