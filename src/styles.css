@@ -1,8 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
 
 @import './assets/global/plugins/font-awesome-4.7.0/css/font-awesome.min.css';
+@import "./assets/global/plugins/bootstrap/css/bootstrap.min.css";
 @import "./assets/global/css/material.blue-cyan.min.css";
 @import "../node_modules/material-design-icons/iconfont/material-icons.css";
+@import  "./assets/global/plugins/sweet-alert/sweetalert.css";
 
 /*页面元素默认样式*/
 
@@ -11,6 +13,13 @@ a {
     color: rgba(0, 0, 0, .8);
 }
 
+a:focus, a:hover {
+    text-decoration: none;
+}
+
+dt, kbd kbd, label {
+    font-weight: 400;
+}
 
 /*框架内类样式更改*/
 
@@ -28,6 +37,10 @@ a {
 
 .mdl-textfield__label {
     color: rgba(0, 0, 0, 0.36);
+}
+
+.mdl-textfield__label:after {
+    bottom: 15px;
 }
 
 .mdl-textfield {
@@ -72,8 +85,6 @@ a {
     padding: 8px 12px;
     border-radius: 0 0 2px 2px;
 }
-
-.display-list-container {}
 
 .toolbar-btns .mdl-button {
     min-width: 36px;
@@ -167,12 +178,22 @@ a {
     width: 25px;
 }
 
+.display-form {
+    padding: 14px;
+}
+
 .display-form-header {
     font-size: 18px;
 }
 
+.from-title {
+    color: rgba(226,106,106,1);
+}
+
 .display-form-body {
     margin: 8px;
+    border: 1px solid #e7ecf1;
+    box-shadow: 0 2px 3px 2px rgba(0,0,0,.03);
 }
 
 .display-form-header i {
@@ -181,6 +202,28 @@ a {
 
 .form-inline-item {
     display: inline-block;
+}
+
+.form-inline-input {
+    display: inline-block;
+    position: relative;
+    margin: 0 0 35px;
+    padding-top: 20px;
+}
+
+.form-inline-input input {
+    width: 150px;
+    border-bottom: 1px solid #c2cad8;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    -ms-border-radius: 0;
+    -o-border-radius: 0;
+    border-radius: 0;
+    color: #555;
+    box-shadow: none;
+    padding-left: 0;
+    padding-right: 0;
+    font-size: 14px;
 }
 
 .diaplay-from-footer {

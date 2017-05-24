@@ -3,15 +3,18 @@
         <div class="table-toolbar">
             <div class="toolbar-btns">
                 <button mdl-button mdl-button-type="raised" mdl-ripple class="btn-add" (click)="addPerson();"><i class="fa fa-plus"></i></button>
-                <button mdl-button mdl-button-type="raised" mdl-ripple class="btn-info"><i class="fa fa-info"></i></button>
-                <button mdl-button mdl-button-type="raised" mdl-ripple class="btn-edit"><i class="fa fa-edit"></i></button>
-                <button mdl-button mdl-button-type="raised" mdl-ripple class="btn-del"><i class="fa fa-minus"></i></button>
+                <button mdl-button mdl-button-type="raised" mdl-ripple class="btn-info" (click)="checkPerson();"><i class="fa fa-info"></i></button>
+                <button mdl-button mdl-button-type="raised" mdl-ripple class="btn-edit" (click)="editPerson();"><i class="fa fa-edit"></i></button>
+                <button mdl-button mdl-button-type="raised" mdl-ripple class="btn-del" (click)="delPerson();"><i class="fa fa-minus"></i></button>
             </div>
 
             <div class="toolbar-search">
-                <mdl-textfield type="text" label="姓名" [(ngModel)]="text1" autocomplete="name" (blur)="onInputBlur($event)" (focus)="onInputFocus($event)" (keyup)="onInputKeyup($event)" floating-label></mdl-textfield>
-                <mdl-textfield type="text" label="姓名" [(ngModel)]="text2" autocomplete="name" (blur)="onInputBlur($event)" (focus)="onInputFocus($event)" (keyup)="onInputKeyup($event)" floating-label></mdl-textfield>
-                <mdl-textfield type="text" label="姓名" [(ngModel)]="text3" autocomplete="name" (blur)="onInputBlur($event)" (focus)="onInputFocus($event)" (keyup)="onInputKeyup($event)" floating-label></mdl-textfield>
+                    <mdl-textfield type="text" label="姓名" [(ngModel)]="searchObj.name" autocomplete="name" (blur)="onInputBlur($event)" (focus)="onInputFocus($event)"
+                        (keyup)="onInputKeyup($event)" floating-label></mdl-textfield>
+                    <mdl-textfield type="text" label="队伍" [(ngModel)]="searchObj.team" autocomplete="name" (blur)="onInputBlur($event)" (focus)="onInputFocus($event)"
+                        (keyup)="onInputKeyup($event)" floating-label></mdl-textfield>
+                    <mdl-textfield type="text" label="账号" [(ngModel)]="searchObj.account" autocomplete="name" (blur)="onInputBlur($event)" (focus)="onInputFocus($event)"
+                        (keyup)="onInputKeyup($event)" floating-label></mdl-textfield>
                 <button mdl-button mdl-button-type="fab" (click)="search()" class="btn-search">
                     <i class="fa fa-search"></i>
                 </button>
@@ -23,7 +26,8 @@
     </div>
     <div class="portlet-body display-list-body">
         <div class="table-container">
-            <mdl-table-selectable mdl-shadow="2" id='person_manage_table' [table-model]="tableModel" [table-model-selected]="selected" (table-model-selectionChanged)="selectionChanged($event)">
+            <mdl-table-selectable mdl-shadow="2" id='person_manage_table' [table-model]="tableModel" [table-model-selected]="selected"
+                (table-model-selectionChanged)="selectionChanged($event)">
             </mdl-table-selectable>
             <div class="table-footer">
                 <span>共</span><span class="total-size">8</span><span>条</span>

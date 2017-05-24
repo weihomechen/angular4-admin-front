@@ -1,6 +1,8 @@
-<div class="portlet">
+<div class="display-form">
     <div class="display-form-header">
-        <i class="fa fa-plus-square"></i> 新增人员
+        <div class="from-title">
+            <i class="fa fa-plus-square"></i> 新增人员
+        </div>
     </div>
     <form [formGroup]="form" class="display-form-body">
         <div class="form-inline-item">
@@ -25,11 +27,26 @@
             <mdl-radio value="女" formControlName="sex" mdl-ripple>女</mdl-radio>
         </div>
 
+        <div class="form-inline-input">
+            <mdl-textfield label="凑数目的" type="text" formControlName="date" floating-label></mdl-textfield>
+        </div>
+        <div class="form-inline-item">
+            <mdl-textfield label="凑数目的" type="text" floating-label></mdl-textfield>
+        </div>
+        <div class="form-inline-item">
+            <mdl-textfield label="凑数目的" type="text" floating-label></mdl-textfield>
+        </div>
+        <div class="form-inline-item">
+            <mdl-textfield label="凑数目的" type="text" floating-label></mdl-textfield>
+        </div>
+        <div class="form-inline-item">
+            <mdl-textfield label="凑数目的" type="text" floating-label></mdl-textfield>
+        </div>
+
 
     </form>
     <div class="diaplay-from-footer">
         <button mdl-button (click)="cancel()" mdl-button-type="raised" mdl-ripple class="btn-cancel">取消</button>
         <button mdl-button (click)="onSubmit()" [disabled]="!form.valid" mdl-button-type="raised" mdl-ripple class="btn-submit">确认</button>
     </div>
-
 </div>
