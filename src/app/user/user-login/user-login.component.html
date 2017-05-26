@@ -1,3 +1,42 @@
-<div class="full-screen-mask">
-  
+<div class="user-form-container" [@fadeIn]>
+    <div class="panel panel-default">
+        <div class="panel-heading user-form-header">
+            <h3 class="panel-title">登陆</h3>
+        </div>
+        <div class="panel-body">
+            <form #form="ngForm" (ngSubmit)="form.form.valid && doLogin()" novalidate class="form-horizontal" role="form">
+                <div class="form-group" [ngClass]="{ 'has-error': form.submitted && !userName.valid }">
+                    <label class="col-sm-3 control-label">用户名：</label>
+                    <div class="col-sm-8">
+                        <input required name="userName" [(ngModel)]="user.userName" #userName="ngModel" type="text" class="form-control" placeholder="请输入用户名...">
+                        <div *ngIf="form.submitted && !userName.valid" class="text-danger">请输入用户名！</div>
+                    </div>
+                </div>
+                <div class="form-group" [ngClass]="{ 'has-error': form.submitted && !password.valid }">
+                    <label class="col-sm-3 control-label">密码：</label>
+                    <div class="col-sm-8">
+                        <input required minlength="8" [(ngModel)]="user.password" name="password" #password="ngModel" type="password" class="form-control" placeholder="请输入密码...">
+                        <div *ngIf="form.submitted && !password.valid" class="text-danger">请输入密码！</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-3 col-sm-8">
+                        <div class="checkbox">
+                            <mdl-checkbox name="remeberMe" [mdl-ripple]="true" [(ngModel)]="user.remeberMe" #remeberMe="ngModel">
+                                记住我
+                            </mdl-checkbox>
+                        </div>
+
+                    </div>
+                </div>
+                <div *ngIf="error" class="col-sm-offset-3 col-sm-8 alert alert-danger">{{error}}</div>
+                <div class="form-group">
+                    <div class="col-sm-offset-3 col-sm-8">
+                        <button type="submit" mdl-button mdl-button-type="raised" mdl-ripple class="btn-submit">登录</button>
+                        <button type="button" mdl-button mdl-button-type="raised" mdl-ripple class="btn-red">忘记密码？</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
 </div>

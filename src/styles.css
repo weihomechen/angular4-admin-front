@@ -37,6 +37,10 @@ app-layout-body {
     box-shadow: none;
 }
 
+mdl-layout-content {
+    z-index: 4;
+}
+
 .body-content {
     width: 84%;
 }
@@ -136,7 +140,8 @@ app-layout-body {
     border-color: #dab10d;
 }
 
-.btn-del {
+.btn-del,
+.btn-red {
     color: #fff;
     background-color: #ed6b75;
     border-color: #ea5460;
@@ -185,6 +190,9 @@ app-layout-body {
 .btn-submit {
     color: #fff;
     background-color: #29C6CD!important;
+}
+
+.btn-submit[disabled] {
     box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -1px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12)!important;
 }
 
@@ -228,10 +236,7 @@ app-layout-body {
 .form-inline-input input {
     width: 150px;
     border-bottom: 1px solid #c2cad8;
-    -webkit-border-radius: 0;
-    -moz-border-radius: 0;
-    -ms-border-radius: 0;
-    -o-border-radius: 0;
+    border-radius: 0;
     border-radius: 0;
     color: #555;
     box-shadow: none;
@@ -247,4 +252,26 @@ app-layout-body {
 .diaplay-from-footer button {
     float: right;
     margin-left: 15px;
+}
+
+.full-screen-mask {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    background-color: rgba(0, 0, 0, .4);
+}
+
+.user-form-container {
+    z-index: 4;
+    position: fixed;
+    top: 30%;
+    left: 30%;
+    width: 500px;
+}
+
+.user-form-header {
+    background-color: #00ADB5!important;
 }

@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouteReuseStrategy } from '@angular/router';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 // App模块
 import { AppComponent } from './app.component';
@@ -17,6 +18,7 @@ import { LayoutModule } from './layout/layout.module';
 import { HomeModule } from './home/home.module';
 import { ShareModule } from './share/share.module';
 import { TabControlService } from './layout/header/tab/tabControl.service';
+import { UserService } from './user/user.service';
 
 @NgModule({
     declarations: [
@@ -25,6 +27,7 @@ import { TabControlService } from './layout/header/tab/tabControl.service';
     imports: [
         // Angular模块
         BrowserModule,
+        NoopAnimationsModule,
         FormsModule,
         HttpModule,
         // 项目内模块
@@ -36,6 +39,7 @@ import { TabControlService } from './layout/header/tab/tabControl.service';
     ],
     providers: [
         TabControlService,
+        UserService,
         { provide: RouteReuseStrategy, useClass: CustomReuseStrategy }
     ],
     bootstrap: [AppComponent]

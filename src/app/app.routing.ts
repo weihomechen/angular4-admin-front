@@ -3,16 +3,21 @@ import { Routes, RouterModule, RouteReuseStrategy, DetachedRouteHandle, Activate
 import { AppComponent } from './app.component';
 
 import { HomeComponent } from './home/home/home.component';
-
+import { UserService } from './user/user.service';
 
 const appRoutes: Routes = [
     {
         path: 'home',
         component: HomeComponent,
+        canActivate: [UserService]
     },
     {
         path: 'base-data',
         loadChildren: './base-data/base-data.module#BaseDataModule'
+    },
+    {
+        path: 'user',
+        loadChildren: './user/user.module#UserModule'
     },
     {
         path: '',
