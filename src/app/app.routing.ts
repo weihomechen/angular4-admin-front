@@ -3,7 +3,13 @@ import { Routes, RouterModule, RouteReuseStrategy, DetachedRouteHandle, Activate
 import { AppComponent } from './app.component';
 
 import { HomeComponent } from './home/home/home.component';
+import { UserLoginComponent } from './user/user-login/user-login.component';
+import { UserRegisterComponent } from './user/user-register/user-register.component';
+import { UserForgetpwdComponent } from './user/user-forgetpwd/user-forgetpwd.component';
+import { UserInfoComponent } from './user/user-info/user-info.component';
+import { UserChangePwdComponent } from './user/user-change-pwd/user-change-pwd.component';
 import { UserService } from './user/user.service';
+
 
 const appRoutes: Routes = [
     {
@@ -16,8 +22,27 @@ const appRoutes: Routes = [
         loadChildren: './base-data/base-data.module#BaseDataModule'
     },
     {
-        path: 'user',
-        loadChildren: './user/user.module#UserModule'
+        path: 'user-register',
+        component: UserRegisterComponent,
+        outlet: 'user'
+    },
+    {
+        path: 'user-login',
+        component: UserLoginComponent,
+        outlet: 'user'
+    },
+    {
+        path: 'user-info',
+        component: UserInfoComponent
+    },
+    {
+        path: 'user-forgetpwd',
+        component: UserForgetpwdComponent,
+        outlet: 'user'
+    },
+    {
+        path: 'user-change-pwd',
+        component: UserChangePwdComponent
     },
     {
         path: '',
@@ -58,6 +83,10 @@ export class CustomReuseStrategy implements RouteReuseStrategy {
     }
     // 决定当前的路由是否还原
     shouldAttach(route: ActivatedRouteSnapshot): boolean {
+        // 如果是新增的页面，不复用之前的路由
+        if (route.params.reuse === 'false') {
+            return false;
+        }
         // console.log('CustomReuseStrategy:shouldAttach', route);
         return !!route.routeConfig && !!this.handlers[route.routeConfig.path];
     }

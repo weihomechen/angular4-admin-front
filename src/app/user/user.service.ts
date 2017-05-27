@@ -6,6 +6,7 @@ import { User } from './model/user';
 
 import { Observable } from 'rxjs/Observable';
 import { Subject } from 'rxjs/Subject';
+import { TabControlService } from '../layout/header/tab/tabControl.service';
 
 @Injectable()
 export class UserService implements CanActivate {
@@ -13,15 +14,18 @@ export class UserService implements CanActivate {
     private userId;
     private userInfo: object;
     private userLoginUrl = '/assets/mock-data/user-login.json';
+    private registerUrl = '/assets/mock-data/user-register.json';
+    private forgetPwdUrl = '/assets/mock-data/forget-pwd.json';
     private subject: Subject<User> = new Subject<User>();
     constructor(
         private http: Http,
-        private router: Router
+        private router: Router,
+        private tabControlService: TabControlService
     ) { }
 
     canActivate() {
         if (!this.userId) {
-            this.router.navigate(['/user/user-login']);
+            this.router.navigate([{ outlets: { user: ['user-login'] } }]);
         }
         return !!this.userId;
     }
@@ -45,17 +49,53 @@ export class UserService implements CanActivate {
             .subscribe(
             data => {
                 console.log('登陆成功');
-                this.router.navigate(['/home']);
+                this.router.navigate([{ outlets: { user: null } }]);
             },
             error => {
-                console.error(error)
+                console.error(error);
             }
             );
     }
 
     public logout(): void {
+        this.tabControlService.closeAll();
         localStorage.removeItem('currentUser');
+        this.userId = null;
         this.subject.next(Object.assign({}));
+        this.router.navigate([{ outlets: { user: ['user-login'] } }]);
     }
 
+    public forgetPwd(email: string): Observable<any> {
+        // return this.http
+        //     .get(this.forgetPwdUrl)
+        //     .map((res: Response) => res.json());
+        return Observable.create((observer) => {
+            observer.next('邮件发送成功，请登录邮箱查看')
+        });
+    }
+
+    public register(user) {
+        console.log(user);
+
+        // 向后台post数据的写法如下
+        // let data = new URLSearchParams();
+        // data.append('email', user.email);
+        // data.append('password', user.password);
+        // return this.http.post(this.userRegisterURL,data);
+
+        return this.http
+            .get(this.registerUrl)
+            .map((response: Response) => {
+                let user = response.json();
+                localStorage.setItem("currentUser", JSON.stringify(user));
+                this.subject.next(user);
+            });
+    }
+
+    // 检测邮箱是否已注册
+    public isEmailUsed(email: string){
+        return Observable.create((observer)=>{
+            observer.next(false);
+        })
+    }
 }

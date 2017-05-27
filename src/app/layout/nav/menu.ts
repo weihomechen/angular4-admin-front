@@ -3,4 +3,6 @@ export class Menu {
   icon?: string;
   submenu?: Menu[];
   link?: string;
+  params?: string;
+  fragment?: string;
 }

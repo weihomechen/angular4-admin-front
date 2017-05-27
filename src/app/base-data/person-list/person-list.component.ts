@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Http, Response } from '@angular/http';
-import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 
 import { MdlDefaultTableModel, IMdlTableModelItem } from '@angular-mdl/core';
-import { ITablePersonItem } from '../model/table-person-item';
+import { IPersonItem } from '../model/table-person-item';
 import { TabControlService } from '../../layout/header/tab/tabControl.service';
 import { PersonManageService } from '../person-manage.service';
 import 'rxjs/add/operator/toPromise';
@@ -19,14 +18,14 @@ declare var SweetAlert: any;
 export class PersonListComponent implements OnInit {
 
     tableData;
-    selected;
+    selected = [];
     tableModel = new MdlDefaultTableModel([
-        { key: 'name', name: 'name', sortable: true, numeric: true },
-        { key: 'sex', name: 'sex', numeric: true },
-        { key: 'team', name: 'team', sortable: true },
-        { key: 'account', name: 'account', sortable: true, numeric: true },
-        { key: 'role', name: 'role', numeric: true },
-        { key: 'position', name: 'position', sortable: true, numeric: true }
+        { key: 'name', name: '姓名', sortable: true, numeric: true },
+        { key: 'sex', name: '性别', numeric: true },
+        { key: 'team', name: '队伍', sortable: true },
+        { key: 'account', name: '账号', sortable: true, numeric: true },
+        { key: 'role', name: '角色', numeric: true },
+        { key: 'position', name: '职位', sortable: true, numeric: true }
     ]);
     searchObj = {
         name: '',
@@ -36,8 +35,7 @@ export class PersonListComponent implements OnInit {
 
     constructor(private http: Http,
         private tabControlService: TabControlService,
-        private personManageService: PersonManageService,
-        private router: Router) {
+        private personManageService: PersonManageService) {
     }
 
     ngOnInit() {
@@ -45,7 +43,7 @@ export class PersonListComponent implements OnInit {
     }
 
     initTable(searchObj?) {
-        this.personManageService.getPersons(searchObj).then(personArr => {
+        this.personManageService.getPersons(searchObj).subscribe(personArr => {
             this.tableData = personArr;
             this.tableModel.data.length = 0;
             this.tableModel.addAll(this.tableData);
@@ -60,22 +58,41 @@ export class PersonListComponent implements OnInit {
     // 添加人员
     addPerson() {
         this.tabControlService.newTab({ 'name': '添加人员', 'link': '/base-data/person-add' });
-        this.router.navigateByUrl('base-data/person-add');
     }
 
     // 查看人员
     checkPerson() {
-        if (!this.selected || this.selected.length !== 1) {
+        if (this.selected.length !== 1) {
             SweetAlert.notice('请选择一个人员进行查看', '查看人员');
             return;
+        } else if (this.tabControlService.isExist('/base-data/person-edit')) {
+            SweetAlert.notice('已经存在相同的页面，请先处理该页面');
+        } else {
+            const personId = this.selected[0].id;
+            this.tabControlService.newTab({
+                name: '查看人员',
+                link: '/base-data/person-edit',
+                params: personId
+            });
         }
+
     }
 
     // 修改人员
     editPerson() {
-        if (!this.selected || this.selected.length !== 1) {
+        if (this.selected.length !== 1) {
             SweetAlert.notice('请选择一个人员进行修改', '修改人员');
             return;
+        } else if (this.tabControlService.isExist('/base-data/person-edit')) {
+            SweetAlert.notice('已经存在相同的页面，请先处理该页面');
+        } else {
+            const personId = this.selected[0].id;
+            this.tabControlService.newTab({
+                name: '修改人员',
+                link: '/base-data/person-edit',
+                params: personId,
+                fragment: 'edit'
+            });
         }
     }
 
@@ -85,8 +102,16 @@ export class PersonListComponent implements OnInit {
             SweetAlert.notice('请选择人员进行删除', '删除人员');
             return;
         } else {
-            SweetAlert.confirm('确定删除这' + this.selected.length + '个人员？', '删除人员', function () {
-
+            SweetAlert.confirm('确定删除这' + this.selected.length + '个人员？', '删除人员', () => {
+                const delList = [];
+                this.selected.forEach(person => {
+                    delList.push(person.id);
+                });
+                this.personManageService.delPersons(delList).subscribe({
+                    next: x => SweetAlert.alert('删除人员成功'),
+                    error: error => SweetAlert.warning('删除失败'),
+                    complete: () => SweetAlert.alert('完成')
+                });
             });
         }
     }

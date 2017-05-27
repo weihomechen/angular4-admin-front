@@ -10,11 +10,6 @@
                 "name": "人员管理",
                 "icon": "person",
                 "link": "/base-data/person-list"
-            },
-            {
-                "name": "部门管理",
-                "icon": "view_module",
-                "link": "/base-data/dept-list"
             }
         ]
     },

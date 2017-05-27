@@ -1,15 +1,20 @@
 <mdl-layout-header-row class="header-top-row">
+    <div class="header-logo"><img src="/assets/global/img/ngLogo.png"></div>
     <mdl-layout-title></mdl-layout-title>
     <mdl-layout-spacer></mdl-layout-spacer>
     <!-- Navigation. We hide it in small screens. -->
-    <nav class="mdl-navigation ">
-        <button mdl-button #btn1="mdlButton" (click)="m1.toggle($event, btn1)" mdl-button-type="icon" mdl-ripple><mdl-icon>account_circle</mdl-icon></button>
+    <nav class="mdl-navigation header-user">
+        <button mdl-button #btn1="mdlButton" (click)="m1.toggle($event, btn1)" mdl-button-type="icon" mdl-ripple>
+            <mdl-icon>account_circle</mdl-icon></button>
         <mdl-menu #m1="mdlMenu" mdl-menu-position="bottom-right">
-            <mdl-menu-item disabled mdl-ripple mdl-menu-item-full-bleed-divider>admin</mdl-menu-item>
-            <mdl-menu-item class="mdl-color-text--grey-600">
-                <mdl-icon>lock</mdl-icon>修改密码</mdl-menu-item>
+            <mdl-menu-item mdl-ripple class="header-user-menu mdl-color-text--grey-700" (click)="getUserInfo()">
+                <i class="fa fa-user"></i>用户信息</mdl-menu-item>
+            <mdl-menu-item mdl-ripple class="header-user-menu mdl-color-text--grey-700" (click)="changePwd()">
+                <i class="fa fa-lock"></i>修改密码</mdl-menu-item>
+            <mdl-menu-item mdl-ripple class="header-user-menu mdl-color-text--grey-700" (click)="logout()">
+                <i class="fa fa-sign-out"></i>退出</mdl-menu-item>
         </mdl-menu>
-        <a class="mdl-navigation-link">退出</a>
+        <a class="mdl-navigation-link">{{currentUser?.userName}}</a>
     </nav>
 </mdl-layout-header-row>
 <mdl-layout-header-row class="header-bottom-row">

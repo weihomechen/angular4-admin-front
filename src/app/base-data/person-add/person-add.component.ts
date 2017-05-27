@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
 
 import { PersonManageService } from '../person-manage.service';
 import { TabControlService } from '../../layout/header/tab/tabControl.service';
@@ -29,8 +28,7 @@ export class PersonAddComponent implements OnInit {
     ];
 
     constructor(private fb: FormBuilder,
-        private route: Router,
-        private TabControlService: TabControlService,
+        private tabControlService: TabControlService,
         private personManageService: PersonManageService
     ) {
         this.form = fb.group({
@@ -44,18 +42,16 @@ export class PersonAddComponent implements OnInit {
     }
 
     ngOnInit() {
-        $('.portlet').css('height', window.innerHeight - 120 + 'px');
     }
 
-
+    // 确认
     public onSubmit() {
         console.log(this.form);
-        // this.personManageService.addPerson(this.form).then(() => SweetAlert.alert('新增人员成功'))
+        this.personManageService.addPerson(this.form).subscribe(() => SweetAlert.alert('新增人员成功'));
     }
-
+    // 取消
     cancel() {
-        this.route.navigateByUrl('/base-data/person-list');
-        this.TabControlService.closeTab({ name: '新增人员', link: '/base-data/person-add' });
+        this.tabControlService.closeTab();
     }
 
     public onDisableForm(formDisabled: boolean) {

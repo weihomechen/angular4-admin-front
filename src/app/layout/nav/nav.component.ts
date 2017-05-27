@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 
 import { Menu } from './menu';
 import { MenuService } from './menu.service';
@@ -9,29 +9,22 @@ import { TabControlService } from '../header/tab/tabControl.service';
     templateUrl: 'nav.component.html',
     styleUrls: ['nav.component.css']
 })
-export class NavComponent implements OnInit, AfterViewInit {
+export class NavComponent implements OnInit {
     menus: Menu[];
-    error: any;
-    ishidden = true;
-    mydrawer: any;
-    @ViewChild('mainLayout') layout: ElementRef;
-    constructor(private menuService: MenuService,
+
+    constructor(
+        private menuService: MenuService,
         private tabControlService: TabControlService
     ) { }
+
+    ngOnInit(): void {
+        this.getMenus();
+    }
 
     getMenus(): void {
         this.menuService
             .getMenus()
-            .then(menus => this.menus = menus)
-            .catch(error => this.error = error);
-    }
-
-    ngAfterViewInit() {
-        // this.mydrawer = this.layout;
-    }
-
-    ngOnInit(): void {
-        this.getMenus();
+            .subscribe(menus => this.menus = menus);
     }
 
     openTopMenuTab(menu, secondNav, expandIcon) {
@@ -47,7 +40,6 @@ export class NavComponent implements OnInit, AfterViewInit {
     }
 
     openThirdMenuTab(menu, secondNav, expandIcon) {
-        // this.secondMenuToggle(secondNav, expandIcon);
         this.tabControlService.newTab(menu);
     }
 

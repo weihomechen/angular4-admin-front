@@ -1,0 +1,27 @@
+<div class="full-screen-mask">
+    <div class="user-form-container">
+        <div class="panel panel-default">
+            <div class="panel-heading user-form-header">
+                <h3 class="panel-title">设置新密码</h3>
+            </div>
+            <div class="panel-body">
+                <form #form="ngForm" (ngSubmit)="form.form.valid && doGetNewPwd()" novalidate class="form-horizontal" role="form">
+                    <div class="form-group" [ngClass]="{ 'has-error': form.submitted && !email.valid }">
+                        <label class="col-sm-3 control-label">注册邮箱：</label>
+                        <div class="col-sm-8">
+                            <input required name="email" [(ngModel)]="mail" #email="ngModel" type="email" class="form-control" placeholder="请输入邮箱...">
+                            <div *ngIf="form.submitted && !email.valid" class="text-danger">请输入邮箱！</div>
+                        </div>
+                    </div>
+                    <div *ngIf="error" class="col-sm-offset-3 col-sm-8 alert alert-danger">{{error}}</div>
+                    <div class="form-group" style="margin-top:35px">
+                        <div class="col-sm-offset-3 col-sm-8">
+                            <button type="submit" mdl-button mdl-button-type="raised" mdl-ripple class="btn-submit">确认</button>
+                            <button type="button" mdl-button mdl-button-type="raised" mdl-ripple class="btn-back" (click)="goBackLogin()">返回登录</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

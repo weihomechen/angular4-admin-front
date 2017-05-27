@@ -22,6 +22,7 @@
         ],
         "scripts": [
             "../node_modules/jquery/dist/jquery.min.js",
+            "./assets/global/scripts/common.js",
             "./assets/global/plugins/sweet-alert/sweetalert.min.js",
             "./assets/global/scripts/sweetalert.js"
         ],

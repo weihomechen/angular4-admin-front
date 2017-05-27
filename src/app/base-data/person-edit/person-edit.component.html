@@ -1,3 +1,38 @@
-<p>
-  person-edit works!
-</p>
+<div class="display-form">
+  <div class="display-form-header">
+    <div class="from-title">
+      <i class="fa fa-plus-square"></i> 查看人员
+    </div>
+  </div>
+  <form id="person_edit_form" [formGroup]="form" class="display-form-body">
+    <div class="form-inline-item">
+      <mdl-textfield label="姓名*" type="text" formControlName="name" floating-label name="name"></mdl-textfield>
+    </div>
+    <div class="form-inline-item">
+      <mdl-textfield label="队伍*" type="text" formControlName="team" floating-label name="team"></mdl-textfield>
+    </div>
+    <div class="form-inline-item">
+      <mdl-textfield label="账号*" type="text" formControlName="account" floating-label name="account"></mdl-textfield>
+    </div>
+    <div class="form-inline-item">
+      <mdl-textfield label="职业*" type="text" formControlName="role" floating-label name="role"></mdl-textfield>
+    </div>
+    <div class="form-inline-item">
+      <mdl-textfield label="职务*" type="text" formControlName="position" floating-label name="position"></mdl-textfield>
+    </div>
+
+    <div class="form-inline-item">
+      <mdl-textfield label="凑数目的" type="text" floating-label></mdl-textfield>
+    </div>
+    <div class="form-inline-item">
+      <mdl-textfield label="凑数目的" type="text" floating-label></mdl-textfield>
+    </div>
+
+
+  </form>
+  <div class="diaplay-from-footer">
+    <button mdl-button-type="raised" mdl-ripple class="btn-cancel" mdl-button *ngIf="!isEdit" (click)="cancel()">返回</button>
+    <button mdl-button-type="raised" mdl-ripple class="btn-cancel" mdl-button *ngIf="isEdit" (click)="cancel()">取消</button>
+    <button mdl-button-type="raised" mdl-ripple class="btn-submit" mdl-button *ngIf="isEdit" (click)="onSubmit()" [disabled]="!form.valid">确认</button>
+  </div>
+</div>

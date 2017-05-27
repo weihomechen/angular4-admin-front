@@ -1,7 +1,7 @@
 md2-tabs {
     position: absolute;
     left: 240px;
-    top: 36px;
+    top: 30px;
     /*overflow: hidden;*/
     display: block;
     margin-right: 45px;
@@ -140,6 +140,7 @@ md2-tabs {
 }
 
 .md2-tab-label a {
+    color: #fff;
     font-size: 16px;
     vertical-align: super;
 }

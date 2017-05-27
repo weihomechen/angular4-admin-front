@@ -1,10 +1,10 @@
 [
-    { "id": "1", "name": "叶秋", "sex": "男", "team": "兴欣", "account": "君莫笑", "role": "散人", "position": "队长" },
+    { "id": "1", "name": "叶修", "sex": "男", "team": "兴欣", "account": "君莫笑", "role": "散人", "position": "队长" },
     { "id": "2", "name": "苏沐橙", "sex": "女", "team": "兴欣", "account": "风梳烟沐", "role": "枪炮师", "position": "队员" },
     { "id": "3", "name": "方锐", "sex": "男", "team": "兴欣", "account": "海无量", "role": "气功师", "position": "队员" },
-    { "id": "4", "name": "叶秋", "sex": "男", "team": "兴欣", "account": "君莫笑", "role": "散人", "position": "队长" },
+    { "id": "4", "name": "叶修", "sex": "男", "team": "兴欣", "account": "君莫笑", "role": "散人", "position": "队长" },
     { "id": "5", "name": "苏沐橙", "sex": "女", "team": "兴欣", "account": "风梳烟沐", "role": "枪炮师", "position": "队员" },
     { "id": "6", "name": "方锐", "sex": "男", "team": "兴欣", "account": "海无量", "role": "气功师", "position": "队员" },
-    { "id": "7", "name": "叶秋", "sex": "男", "team": "兴欣", "account": "君莫笑", "role": "散人", "position": "队长" },
+    { "id": "7", "name": "叶修", "sex": "男", "team": "兴欣", "account": "君莫笑", "role": "散人", "position": "队长" },
     { "id": "8", "name": "苏沐橙", "sex": "女", "team": "兴欣", "account": "风梳烟沐", "role": "枪炮师", "position": "队员" }
 ]

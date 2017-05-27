@@ -130,7 +130,7 @@ mdl-layout-content {
 
 .btn-info {
     color: #fff;
-    background-color: #659be0;
+    background-color: #118DF0;
     border-color: #508edb;
 }
 
@@ -138,6 +138,12 @@ mdl-layout-content {
     color: #fff;
     background-color: #F1C40F;
     border-color: #dab10d;
+}
+
+.btn-back {
+    color: #fff;
+    background-color: #EA5455;
+    border-color: #EA5422;
 }
 
 .btn-del,
@@ -194,6 +200,14 @@ mdl-layout-content {
 
 .btn-submit[disabled] {
     box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -1px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12)!important;
+}
+
+.btn-small {
+    width: 40px;
+    height: 30px;
+    font-size: 12px;
+    padding: 0 6px;
+    line-height: 12px;
 }
 
 .table-target-page {
@@ -267,11 +281,84 @@ mdl-layout-content {
 .user-form-container {
     z-index: 4;
     position: fixed;
-    top: 30%;
+    top: 25%;
     left: 30%;
     width: 500px;
 }
 
 .user-form-header {
     background-color: #00ADB5!important;
+}
+
+
+/*页面加载动画*/
+
+.loading-container {
+    position: fixed;
+    z-index: 15;
+    top: 30%;
+    left: 40%;
+}
+
+.loading-dot {
+    display: inline-block;
+    z-index: 15;
+    background: #14FFEC;
+    height: 5px;
+    width: 5px;
+    opacity: 0;
+    border-radius: 50%;
+    transform: translateX(-800px);
+    background-color: #08D9D6
+}
+
+.dot-1 {
+    animation: loading-dot-style 4s infinite;
+    animation-delay: .8s
+}
+
+.dot-2 {
+    animation: loading-dot-style 4s infinite;
+    animation-delay: .7s
+}
+
+.dot-3 {
+    animation: loading-dot-style 4s infinite;
+    animation-delay: .6s
+}
+
+.dot-4 {
+    animation: loading-dot-style 4s infinite;
+    animation-delay: .5s
+}
+
+.dot-5 {
+    animation: loading-dot-style 4s infinite;
+    animation-delay: .4s
+}
+
+.dot-6 {
+    animation: loading-dot-style 4s infinite;
+    animation-delay: .3s
+}
+
+.dot-7 {
+    animation: loading-dot-style 4s infinite;
+    animation-delay: .2s
+}
+
+.dot-8 {
+    animation: loading-dot-style 4s infinite;
+    animation-delay: .1s
+}
+
+@keyframes loading-dot-style {
+    40% {
+        transform: translateX(0);
+        opacity: .8
+    }
+    100% {
+        transform: translateX(300px);
+        opacity: 0
+    }
 }

@@ -1,0 +1,14 @@
+.user-register-container {
+    position: fixed;
+    z-index: 15;
+    top: 10%;
+    left: 30%;
+}
+
+#vcode_img {
+    margin: 4px 20px 0 0;
+}
+
+.user-register-btn-group button {
+    margin-right: 40px;
+}

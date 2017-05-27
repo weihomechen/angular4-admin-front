@@ -91,7 +91,7 @@ export class Md2TabLabel {
              <i class="fa fa-sort-down fa-lg white"></i>
           </button>
           <mdl-menu #m1="mdlMenu" mdl-menu-position="bottom-left">
-             <mdl-menu-item mdl-ripple mdl-menu-item-full-bleed-divider (click)="reloadNow()">刷新当前页</mdl-menu-item>
+             <mdl-menu-item mdl-ripple mdl-menu-item-full-bleed-divider (click)="reloadNowPage()">刷新当前页</mdl-menu-item>
              <mdl-menu-item mdl-ripple mdl-menu-item-full-bleed-divider (click)="closeAll()">关闭所有选项卡</mdl-menu-item>
              <mdl-menu-item mdl-ripple mdl-menu-item-full-bleed-divider (click)="closeOther()">关闭其它选项卡</mdl-menu-item>
              <mdl-menu-item mdl-ripple mdl-menu-item-full-bleed-divider (click)="closeNow()">关闭当前选项卡</mdl-menu-item>
@@ -118,7 +118,7 @@ export class Md2Tabs implements OnInit, AfterContentInit {
     private offsetLeft = 0;
     private inkBarLeft = '0';
     private inkBarWidth = '0';
-    tabControlServiceModal: TabControlServiceModal;
+    tabsModel: TabControlServiceModal;
     @Input() class: string;
     @Input()
     set selectedIndex(value: any) {
@@ -156,52 +156,41 @@ export class Md2Tabs implements OnInit, AfterContentInit {
     }
     @Output() change: EventEmitter<Md2TabChangeEvent> = new EventEmitter<Md2TabChangeEvent>();
 
-    constructor(private elementRef: ElementRef, private router: Router, private tabControlService: TabControlService) { }
+    constructor(private elementRef: ElementRef,
+        private router: Router,
+        private tabControlService: TabControlService) { }
 
     ngOnInit(): void {
-        this.tabControlServiceModal = this.tabControlService.tabControlServiceModal;
+        this.tabsModel = this.tabControlService.tabsModel;
         this.element.canvas.style.width = 1240 + 'px';
         this.router.navigateByUrl('home');
     }
 
     /**
-     * 点击Tab时激活并路由到相应组件
+     * 点击Tab时激活并路由到相应组件,tab切换应该进行还原
      */
     goToTab(menuTab: Menu) {
-        for (let i = 0, l = this.tabControlServiceModal.tabs.length; i < l; i++) {
-            if (this.tabControlServiceModal.tabs[i] === menuTab) {
-                this.tabControlServiceModal.activeTab = i;
-                this.router.navigate([menuTab.link]);
-                break;
-            }
-        }
+       this.tabControlService.goToTab(menuTab);
     }
 
     // tab管理菜单
+    // 刷新当前页
+    reloadNowPage() {
+        this.tabControlService.reloadNowPage();
+    }
     // 关闭所有页面
     closeAll() {
-        this.tabControlServiceModal.tabs.length = 1;
-        this.tabControlServiceModal.activeTab = 0;
+        this.tabControlService.closeAll();
     }
 
     // 关闭其它页面
     closeOther() {
-        let retainList = [],
-            currentTabIndex = this.tabControlServiceModal.activeTab;
-        retainList.push(this.tabControlServiceModal.tabs[0]);
-        retainList.push(this.tabControlServiceModal.tabs[currentTabIndex]);
-        this.tabControlServiceModal.tabs = retainList;
-        this.tabControlServiceModal.activeTab = 1;
+        this.tabControlService.closeOther();
     }
 
     // 关闭当前页面
     closeNow() {
-        const index = this.tabControlServiceModal.activeTab;
-        if (index === 0) {
-            return;
-        }
-        this.tabControlServiceModal.tabs.splice(index, 1);
-        this.tabControlServiceModal.activeTab = index - 1;
+        this.tabControlService.closeTab();
     }
 
     /**
@@ -232,8 +221,8 @@ export class Md2Tabs implements OnInit, AfterContentInit {
      */
     _updateInkBar(activeIndex?: number): void {
         const elements = this.element;
-        if (!elements.tabs[this.tabControlServiceModal.activeTab]) { return; }
-        const index = activeIndex || this.tabControlServiceModal.activeTab;
+        if (!elements.tabs[this.tabsModel.activeTab]) { return; }
+        const index = activeIndex || this.tabsModel.activeTab;
         const tab = elements.tabs[index];
         this.inkBarLeft = tab.offsetLeft + 'px';
         this.inkBarWidth = tab.offsetWidth + 'px';
@@ -326,7 +315,7 @@ export class Md2Tabs implements OnInit, AfterContentInit {
         });
         this.shouldPaginate = canvasWidth < 0;
         // TODO: need improve
-        if (this.tabControlServiceModal.tabs.length <= 4) {
+        if (this.tabsModel.tabs.length <= 4) {
             this.shouldPaginate = false;
         }
     }

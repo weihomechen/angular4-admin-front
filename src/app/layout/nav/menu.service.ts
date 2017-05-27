@@ -2,23 +2,18 @@ import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 
 import { Menu } from './menu';
-import 'rxjs/add/operator/toPromise';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/map';
 
 @Injectable()
 export class MenuService {
     private menusUrl = '/assets/mock-data/menu.json';
     constructor(private http: Http) { }
 
-    getMenus(): Promise<Menu[]> {
+    getMenus(): Observable<Menu[]> {
         return this.http
-            .get(this.menusUrl).
-            toPromise()
-            .then(response => response.json() as Menu[])
-            .catch(this.handleError);
+            .get(this.menusUrl)
+            .map(response => response.json() as Menu[]);
     }
 
-    private handleError(error: any): Promise<any> {
-        console.error('An error occurred', error);
-        return Promise.reject(error.message || error);
-    }
 }
