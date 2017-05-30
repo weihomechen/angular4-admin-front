@@ -21,10 +21,44 @@ export class PersonAddComponent implements OnInit {
     public sex = new FormControl('');
     public account = new FormControl('', Validators.required);
     public role = new FormControl('', Validators.required);
-    public position = new FormControl('');
+    public registerDateCtrl = new FormControl('', Validators.required);
     public genders = [
         { value: '0', viewValue: '男' },
         { value: '1', viewValue: '女' }
+    ];
+
+    public positionCtrl = new FormControl();
+    filteredPositions: any;
+    positions = [
+        '队长',
+        '副队长',
+        '队员',
+        '替补'
+    ];
+
+    public stateCtrl = new FormControl();
+    filteredStates: any;
+    states = [
+        'a',
+        'ab',
+        'abc',
+        'abcd',
+        'e',
+        'f',
+        'g',
+        'h',
+        'i',
+        'j',
+        'k',
+        'l',
+        'm',
+        'n',
+        'o',
+        'p',
+        'q',
+        'r',
+        's',
+        't'
     ];
 
     constructor(private fb: FormBuilder,
@@ -37,18 +71,39 @@ export class PersonAddComponent implements OnInit {
             'sex': this.sex,
             'account': this.account,
             'role': this.role,
-            'position': this.position
+            'registerDate': this.registerDateCtrl,
+            'position': this.positionCtrl,
+            'state': this.stateCtrl
         });
+        this.filteredStates = this.stateCtrl.valueChanges
+            .startWith(null)
+            .map(name => this.filterStates(name));
+        this.filteredPositions = this.positionCtrl.valueChanges
+            .startWith(null)
+            .map(position => this.filterPositions(position));
+    }
+    ngOnInit() {
     }
 
-    ngOnInit() {
+    filterStates(val: string) {
+        return val ? this.states.filter(s => new RegExp(`^${val}`, 'gi').test(s))
+            : this.states;
+    }
+
+    filterPositions(val: string) {
+        return val ? this.positions.filter(p => new RegExp(`^${val}`, 'gi').test(p))
+            : this.positions;
     }
 
     // 确认
     public onSubmit() {
         console.log(this.form);
-        this.personManageService.addPerson(this.form).subscribe(() => SweetAlert.alert('新增人员成功'));
+        this.personManageService.addPerson(this.form).subscribe({
+            next: () => SweetAlert.alert('新增人员成功'),
+            error: () => SweetAlert.warning('发生错误')
+        });
     }
+
     // 取消
     cancel() {
         this.tabControlService.closeTab();

@@ -10,19 +10,19 @@ declare var $: any;
 })
 export class AppComponent implements OnInit {
 
-    constructor(private translate: TranslateService){}
+    constructor(private translate: TranslateService) { }
     ngOnInit() {
         const windowWidth = window.innerWidth,
             windowHeight = window.innerHeight;
         $('.app-body, .body-footer').css('width', windowWidth - 246 + 'px');
-        $('.app-body').css('height', windowHeight - 121 + 'px');
+        $('.app-body').css('height', windowHeight - 111 + 'px');
 
 
         this.translate.addLangs(["zh", "en"]);
-		this.translate.setDefaultLang('zh');
+        this.translate.setDefaultLang('zh');
 
-		const browserLang = this.translate.getBrowserLang();
-		console.log("检测到的浏览器语言>" + browserLang);
-		this.translate.use(browserLang.match(/zh|en/) ? browserLang : 'zh');
+        const browserLang = this.translate.getBrowserLang();
+        console.log("检测到的浏览器语言>" + browserLang);
+        this.translate.use(browserLang.match(/zh|en/) ? browserLang : 'zh');
     }
 }

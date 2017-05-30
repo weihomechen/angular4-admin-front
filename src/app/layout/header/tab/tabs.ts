@@ -170,7 +170,7 @@ export class Md2Tabs implements OnInit, AfterContentInit {
      * 点击Tab时激活并路由到相应组件,tab切换应该进行还原
      */
     goToTab(menuTab: Menu) {
-       this.tabControlService.goToTab(menuTab);
+        this.tabControlService.goToTab(menuTab);
     }
 
     // tab管理菜单

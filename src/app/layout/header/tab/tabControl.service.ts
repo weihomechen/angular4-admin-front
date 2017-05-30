@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 import { Menu } from '../../nav/menu';
 import { TabControlServiceModal } from './TabControlServiceModal';
 
+declare var Common: any;
+
 @Injectable()
 export class TabControlService {
     tabsModel: TabControlServiceModal = {
@@ -10,6 +12,7 @@ export class TabControlService {
         activeTab: 0
     };
     tabs = this.tabsModel.tabs;
+    routeParams;
     constructor(private router: Router) { }
 
     // 单纯判断目标tab是否已经存在
@@ -41,18 +44,20 @@ export class TabControlService {
             if (menu.params) {
                 navigateArr.push(menu.params);
             }
+            this.routeParams = {};
             if (menu.fragment) {
-                navigateArr.push({ fragment: menu.fragment, reuse: 'false' });
-            } else {
-                navigateArr.push({ reuse: 'false' });
+                this.routeParams = {
+                    fragment: menu.fragment
+                }
             }
+            navigateArr.push({ reuse: 'false' });
             this.router.navigate(navigateArr);
             setTimeout(() => this.tabsModel.activeTab = i - 1);
         }
     }
 
     // 跳转到tab
-    goToTab(tabMenu: Menu) {
+    goToTab(tabMenu: Menu = this.tabs[this.tabsModel.activeTab]) {
         const navigateArr: any[] = [tabMenu.link];
         if (tabMenu.params) {
             navigateArr.push(tabMenu.params);
@@ -73,8 +78,18 @@ export class TabControlService {
 
     // 刷新当前页
     reloadNowPage() {
-        const nowLink = this.tabs[this.tabsModel.activeTab].link;
-        this.router.navigate([nowLink]);
+        debugger
+        Common.startLoading();
+        let nowLink = window.location.pathname,
+            link;
+        if (~nowLink.indexOf(';')) {
+            link = nowLink.substr(0, nowLink.indexOf(';'));
+        }
+        if (~nowLink.indexOf('foo')) {
+            this.router.navigate([link, { reuse: 'false' }]);
+        } else {
+            this.router.navigate([link, { reuse: 'false', 'foo': '' }]);
+        }
     };
 
     // 关闭所有
@@ -86,6 +101,10 @@ export class TabControlService {
 
     // 关闭其他
     closeOther() {
+        if (this.tabs.length === 1) {
+            this.closeAll();
+            return;
+        }
         const retainList = [],
             currentTabIndex = this.tabsModel.activeTab;
         retainList.push(this.tabs[0]);
@@ -97,6 +116,9 @@ export class TabControlService {
 
     // 关闭tab
     closeTab(tab: Menu = this.tabs[this.tabsModel.activeTab]) {
+        if (this.tabs.length === 1) {
+            return;
+        }
         this.tabs.forEach((tabItem, index) => {
             if (tabItem === tab) {
                 this.tabs.splice(index, 1);
@@ -109,5 +131,9 @@ export class TabControlService {
                 this.router.navigate([link]);
             }
         });
+    }
+
+    getRouteParams() {
+        return this.routeParams;
     }
 }

@@ -1,0 +1,15 @@
+<h4>demo1</h4>
+<div echarts [options]="chartOption" class="demo-chart"></div>
+
+<h4>demo2</h4>
+<button mdl-button-type="raised" mdl-ripple class="btn-info" mdl-button (click)="changeOption()">改变图标类型</button>
+<div echarts [options]="chartOption2" [dataset]="demo2Dataset" class="demo-chart"></div>
+
+<h4>demo3</h4>
+<button mdl-button-type="raised" mdl-ripple class="btn-info" mdl-button (click)="showLoadingByInstance()">加载动画</button>
+<button mdl-button-type="raised" mdl-ripple class="btn-info" mdl-button (click)="hideLoadingByInstance()">加载完成</button>
+<div echarts [options]="chartOption3" (chartInit)="onChart3Init($event)" class="demo-chart"></div>
+
+<h4>demo4</h4>
+<div echarts class="demo-chart" [options]="chartOption4" (chartClick)="onChartClick($event)" (chartDblClick)="onChartDblClick($event)">
+</div>

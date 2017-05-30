@@ -24,7 +24,9 @@
             "../node_modules/jquery/dist/jquery.min.js",
             "./assets/global/scripts/common.js",
             "./assets/global/plugins/sweet-alert/sweetalert.min.js",
-            "./assets/global/scripts/sweetalert.js"
+            "./assets/global/scripts/sweetalert.js",
+            "../node_modules/echarts/dist/echarts.min.js",
+            "..node_modules/fullcalendar/dist/fullcalendar.js"
         ],
         "environmentSource": "environments/environment.ts",
         "environments": {

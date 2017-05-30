@@ -11,15 +11,16 @@ import { AppComponent } from './app.component';
 import { routing, CustomReuseStrategy } from './app.routing';
 
 // 第三方模块
-// import { MdlModule } from '@angular-mdl/core';
+import { MdlModule } from '@angular-mdl/core';
 import { TranslateModule, TranslateLoader, TranslateStaticLoader } from 'ng2-translate';
 import 'hammerjs';
 
 // 项目内模块
 import { LayoutModule } from './layout/layout.module';
-import { HomeModule } from './home/home.module';
-import { UserModule } from './user/user.module';
 import { ShareModule } from './share/share.module';
+import { HomeModule } from './home/home.module';
+import { BaseDataModule } from './base-data/base-data.module'
+import { UserModule } from './user/user.module';
 import { TabControlService } from './layout/header/tab/tabControl.service';
 import { UserService } from './user/user.service';
 
@@ -38,6 +39,7 @@ export function createTranslateLoader(http: Http) {
         FormsModule,
         HttpModule,
         // 第三方模块
+        MdlModule,
         TranslateModule.forRoot({
             provide: TranslateLoader,
             useFactory: (createTranslateLoader),
@@ -45,9 +47,10 @@ export function createTranslateLoader(http: Http) {
         }),
         // 项目内模块
         LayoutModule,
-        HomeModule,
-        UserModule,
         ShareModule,
+        HomeModule,
+        BaseDataModule,
+        UserModule,
         // App模块
         routing
     ],

@@ -9,6 +9,7 @@ import { PersonManageService } from '../person-manage.service';
 import 'rxjs/add/operator/toPromise';
 
 declare var SweetAlert: any;
+declare var Common: any;
 
 @Component({
     selector: 'app-person-list',
@@ -47,6 +48,7 @@ export class PersonListComponent implements OnInit {
             this.tableData = personArr;
             this.tableModel.data.length = 0;
             this.tableModel.addAll(this.tableData);
+            Common.stopLoading();
         }
         );
     }
@@ -57,7 +59,7 @@ export class PersonListComponent implements OnInit {
 
     // 添加人员
     addPerson() {
-        this.tabControlService.newTab({ 'name': '添加人员', 'link': '/base-data/person-add' });
+        this.tabControlService.newTab({ 'name': '添加人员', 'link': '/person-add' });
     }
 
     // 查看人员
@@ -65,13 +67,13 @@ export class PersonListComponent implements OnInit {
         if (this.selected.length !== 1) {
             SweetAlert.notice('请选择一个人员进行查看', '查看人员');
             return;
-        } else if (this.tabControlService.isExist('/base-data/person-edit')) {
+        } else if (this.tabControlService.isExist('/person-edit')) {
             SweetAlert.notice('已经存在相同的页面，请先处理该页面');
         } else {
             const personId = this.selected[0].id;
             this.tabControlService.newTab({
                 name: '查看人员',
-                link: '/base-data/person-edit',
+                link: '/person-edit',
                 params: personId
             });
         }
@@ -83,13 +85,13 @@ export class PersonListComponent implements OnInit {
         if (this.selected.length !== 1) {
             SweetAlert.notice('请选择一个人员进行修改', '修改人员');
             return;
-        } else if (this.tabControlService.isExist('/base-data/person-edit')) {
+        } else if (this.tabControlService.isExist('/person-edit')) {
             SweetAlert.notice('已经存在相同的页面，请先处理该页面');
         } else {
             const personId = this.selected[0].id;
             this.tabControlService.newTab({
                 name: '修改人员',
-                link: '/base-data/person-edit',
+                link: '/person-edit',
                 params: personId,
                 fragment: 'edit'
             });

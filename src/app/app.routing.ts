@@ -3,6 +3,9 @@ import { Routes, RouterModule, RouteReuseStrategy, DetachedRouteHandle, Activate
 import { AppComponent } from './app.component';
 
 import { HomeComponent } from './home/home/home.component';
+import { PersonAddComponent } from './base-data/person-add/person-add.component';
+import { PersonEditComponent } from './base-data/person-edit/person-edit.component';
+import { PersonListComponent } from './base-data/person-list/person-list.component';
 import { UserLoginComponent } from './user/user-login/user-login.component';
 import { UserRegisterComponent } from './user/user-register/user-register.component';
 import { UserForgetpwdComponent } from './user/user-forgetpwd/user-forgetpwd.component';
@@ -10,16 +13,29 @@ import { UserInfoComponent } from './user/user-info/user-info.component';
 import { UserChangePwdComponent } from './user/user-change-pwd/user-change-pwd.component';
 import { UserService } from './user/user.service';
 
+import { AppCkeditorComponent } from './share/app-ckeditor/app-ckeditor.component';
+import { AppChartsComponent } from './share/app-charts/app-charts.component';
+import { AmapDemoComponent } from './share/app-amap/amap-demo.component';
+import { CalendarDemoComponent } from './share/app-calendar/calendar-demo.component';
+
 
 const appRoutes: Routes = [
     {
         path: 'home',
         component: HomeComponent,
-        canActivate: [UserService]
+        // canActivate: [UserService]
     },
     {
-        path: 'base-data',
-        loadChildren: './base-data/base-data.module#BaseDataModule'
+        path: 'person-list',
+        component: PersonListComponent
+    },
+    {
+        path: 'person-add',
+        component: PersonAddComponent
+    },
+    {
+        path: 'person-edit/:id',
+        component: PersonEditComponent
     },
     {
         path: 'user-register',
@@ -43,6 +59,22 @@ const appRoutes: Routes = [
     {
         path: 'user-change-pwd',
         component: UserChangePwdComponent
+    },
+    {
+        path: 'charts',
+        component: AppChartsComponent
+    },
+    {
+        path: 'ckeditor',
+        component: AppCkeditorComponent
+    },
+    {
+        path: 'amap',
+        component: AmapDemoComponent
+    },
+    {
+        path: 'calendar',
+        component: CalendarDemoComponent
     },
     {
         path: '',
@@ -97,6 +129,9 @@ export class CustomReuseStrategy implements RouteReuseStrategy {
     }
     // 决定是否重用路由
     shouldReuseRoute(future: ActivatedRouteSnapshot, curr: ActivatedRouteSnapshot): boolean {
+        if (future.params.reuse === 'false') {
+            return false;
+        }
         // 在此处可以取得跳转前和跳转后的路由路径
         // console.log('CustomReuseStrategy:shouldReuseRoute', future, curr);
         return future.routeConfig === curr.routeConfig;

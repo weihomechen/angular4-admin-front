@@ -1,0 +1,6 @@
+<div [@flyIn]="'active'">
+    <ckeditor [(ngModel)]="ckeditorContent" debounce="500" [config]="config" (change)="onChange($event)" (ready)="onReady($event)" (focus)="onFocus($event)" (blur)="onBlur($event)">
+    </ckeditor>
+    <p>触发的事件：<br> {{ eventInfo }} </p>
+    <p>输入的内容：<br> {{ ckeditorContent }}</p>
+</div>

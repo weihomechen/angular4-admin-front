@@ -18,7 +18,43 @@
             <mdl-textfield label="职业*" type="text" formControlName="role" floating-label error-msg="请输入职业"></mdl-textfield>
         </div>
         <div class="form-inline-item">
-            <mdl-textfield label="职务*" type="text" formControlName="position" floating-label error-msg="请输入职务"></mdl-textfield>
+            <md-input-container>
+                <input mdInput placeholder="请输入职务" [mdAutocomplete]="positionAuto" [formControl]="positionCtrl">
+            </md-input-container>
+
+            <md-autocomplete #positionAuto="mdAutocomplete">
+                <md-option *ngFor="let position of filteredPositions | async" [value]="position">
+                    {{ position }}
+                </md-option>
+            </md-autocomplete>
+        </div>
+
+        <div class="form-inline-item">
+            <md-select placeholder="请选择性别" formControlName="sex" name="sex">
+                <md-option *ngFor="let gender of genders" [value]="gender.value">
+                    {{gender.viewValue}}
+                </md-option>
+            </md-select>
+        </div>
+
+        <div class="form-inline-item">
+            <md-input-container>
+                <input mdInput placeholder="自动匹配" [mdAutocomplete]="auto" [formControl]="stateCtrl">
+            </md-input-container>
+
+            <md-autocomplete #auto="mdAutocomplete">
+                <md-option *ngFor="let state of filteredStates | async" [value]="state">
+                    {{ state }}
+                </md-option>
+            </md-autocomplete>
+        </div>
+
+        <div class="form-inline-item">
+            <md-input-container>
+                <input mdInput [mdDatepicker]="picker" placeholder="请选择注册日期" [formControl]="registerDateCtrl">
+                <button mdSuffix [mdDatepickerToggle]="picker"></button>
+            </md-input-container>
+            <md-datepicker #picker></md-datepicker>
         </div>
 
         <div class="form-inline-item">
@@ -27,14 +63,6 @@
         <div class="form-inline-item">
             <mdl-textfield label="凑数目的" type="text" floating-label></mdl-textfield>
         </div>
-
-        <div class="form-inline-item">
-
-            性别：<br/>
-            <mdl-radio value="男" formControlName="sex" mdl-ripple>男</mdl-radio>
-            <mdl-radio value="女" formControlName="sex" mdl-ripple>女</mdl-radio>
-        </div>
-
 
     </form>
     <div class="diaplay-from-footer">

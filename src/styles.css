@@ -6,6 +6,7 @@
 @import "./assets/global/plugins/bootstrap/css/bootstrap.min.css";
 @import "../node_modules/material-design-icons/iconfont/material-icons.css";
 @import "./assets/global/plugins/sweet-alert/sweetalert.css";
+@import "../node_modules/@angular/material/prebuilt-themes/indigo-pink.css";
 
 /*页面元素默认样式*/
 
@@ -31,6 +32,10 @@ label {
 app-layout-body {
     position: absolute;
     left: 240px;
+}
+
+.app-body {
+    overflow: auto;
 }
 
 .mdl-layout__header {
@@ -224,6 +229,11 @@ mdl-layout-content {
 
 .from-title {
     color: rgba(226, 106, 106, 1);
+}
+
+.form-inline-item {
+    width: 180px;
+    margin: 5px;
 }
 
 .display-form-body {

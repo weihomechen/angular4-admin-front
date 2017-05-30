@@ -1,3 +1,12 @@
-<p>
-  user-info works!
-</p>
+<div class="user-info-container">
+    <form class="form-horizontal" role="form" [formGroup]="form">
+        <div *ngFor="let field of fields" class="form-group">
+            <form-control [form]="form" [field]="field"></form-control>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-9">
+                <button type="button" mdl-button mdl-button-type="raised" mdl-ripple class="btn-submit">保存</button>
+            </div>
+        </div>
+    </form>
+</div>

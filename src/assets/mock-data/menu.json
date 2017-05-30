@@ -4,37 +4,36 @@
         "link": "/home"
     },
     {
-        "name": "基础数据",
+        "name": "增改查删Demo",
         "icon": "star",
         "submenu": [{
-                "name": "人员管理",
-                "icon": "person",
-                "link": "/base-data/person-list"
-            }
-        ]
+            "name": "人员管理",
+            "icon": "person",
+            "link": "/person-list"
+        }]
     },
     {
-        "name": "邮件系统",
-        "icon": "email",
+        "name": "各种工具",
+        "icon": "brightness_7",
         "submenu": [{
-                "name": "收件箱",
-                "icon": "email",
-                "link": "/inbox"
+                "name": "文本编辑器",
+                "icon": "mode_edit",
+                "link": "/ckeditor"
             },
             {
-                "name": "发件箱",
-                "icon": "email",
-                "link": "/outbox"
+                "name": "图表",
+                "icon": "equalizer",
+                "link": "/charts"
             },
             {
-                "name": "草稿箱",
+                "name": "地图",
                 "icon": "email",
-                "link": "/draft_box"
+                "link": "/amap"
             },
             {
-                "name": "邮件标签",
+                "name": "日程安排",
                 "icon": "email",
-                "link": "/email_label"
+                "link": "/calendar"
             },
             {
                 "name": "通讯录",
