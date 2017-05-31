@@ -26,6 +26,8 @@ import { TabControlServiceModal } from './TabControlServiceModal';
 import { TabControlService } from './tabControl.service';
 import { Menu } from '../../nav/menu';
 
+declare var $;
+
 export class Md2TabChangeEvent {
     index: number;
     tab: Md2Tab;
@@ -87,7 +89,7 @@ export class Md2TabLabel {
                 [class.disabled]="tab.disabled" (click)="goToTab(tab.reallyTab)">
             <span [md2Transclude]="tab.labelRef">{{tab.label}}</span>
           </div>
-          <button mdl-button #btn1="mdlButton" (click)="m1.toggle($event, btn1)" id="tab_manage_btn" mdl-ripple>
+          <button mdl-button #btn1="mdlButton" (click)="toggle(m1, $event, btn1)" id="tab_manage_btn" mdl-ripple>
              <i class="fa fa-sort-down fa-lg white"></i>
           </button>
           <mdl-menu #m1="mdlMenu" mdl-menu-position="bottom-left">
@@ -315,9 +317,25 @@ export class Md2Tabs implements OnInit, AfterContentInit {
             canvasWidth -= tab.offsetWidth;
         });
         this.shouldPaginate = canvasWidth < 0;
-        // TODO: need improve
-        if (this.tabsModel.tabs.length <= 6) {
-            this.shouldPaginate = false;
+
+        const manageBtn = $('#tab_manage_btn'),
+            canvas = $('.md2-tabs-canvas');
+        if (this.shouldPaginate) {
+            manageBtn.addClass('fixed-manage-btn');
+            canvas.css('overflow', 'hidden');
+        } else {
+            manageBtn.removeClass('fixed-manage-btn');
+            canvas.css('overflow', '');
+        }
+    }
+
+    toggle(target, $event, btn1) {
+        target.toggle(event, btn1);
+        const menuContainer = $('.mdl-menu__container');
+        if (this.shouldPaginate) {
+            setTimeout(() => menuContainer.css({ 'position': 'fixed', 'left': '', 'right': '0' }));
+        } else {
+            setTimeout(() => menuContainer.css({ 'position': '', 'right': '' }));
         }
     }
 
@@ -325,7 +343,7 @@ export class Md2Tabs implements OnInit, AfterContentInit {
      * 调整tabs的位移
      * @param index
      */
-    adjustOffset(index: number) {
+    adjustOffset(index: number = this.tabsModel.activeTab) {
         let elements = this.element;
         let tabsWidth = 0;
         if (!elements.tabs[index]) { return; }

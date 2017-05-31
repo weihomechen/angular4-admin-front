@@ -17,9 +17,6 @@ md2-tabs {
     margin: 0;
     padding: 0;
     list-style: none;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
     user-select: none;
 }
 
@@ -45,7 +42,7 @@ md2-tabs {
 }
 
 .md2-next-button {
-    right: 0;
+    right: -30px;
 }
 
 .md2-prev-button.disabled,
@@ -64,17 +61,17 @@ md2-tabs {
     border-style: solid;
     border-radius: 1px;
     transform: rotate(45deg);
-    margin: 6px;
+    margin: 4px 10px;
 }
 
 .md2-next-button .next-icon {
-    border-width: 2px 2px 0 0;
+    border-width: 4px 4px 0 0;
 }
 
 .md2-tabs-canvas {
     position: relative;
     height: 100%;
-    overflow: hidden;
+    /*overflow: hidden;*/
     display: block;
     outline: none;
 }
@@ -194,6 +191,11 @@ md2-tab.active {
     vertical-align: top;
     min-width: 40px;
     margin-left: -4px;
+}
+
+.fixed-manage-btn {
+    position: fixed;
+    right: 30px;
 }
 
 #tab_manage_btn .fa-lg {

@@ -17,13 +17,13 @@ export class TabComponent implements OnInit {
     private md2Tabs: Md2Tabs;
     constructor(
         private tabControlService: TabControlService
-        ) { }
+    ) { }
 
     ngOnInit(): void {
         this.tabsModel = this.tabControlService.tabsModel;
     }
 
-    goToTab(menuTab){
+    goToTab(menuTab) {
         this.tabControlService.goToTab(menuTab);
     }
 

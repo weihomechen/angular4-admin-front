@@ -26,14 +26,42 @@ ng serve
 
 ### angular4基本功能的使用
 ### 带管理功能可切换的tab
+    - tab可管理；
+    - 自定义路由重用机制
 ### 一个增改查删的Demo（见人员管理）
-### 集成一些插件（文本编辑器、图表、地图、弹出框、流程图、树目录等）
+    - 增改查删的实现
+    - 多种表单控件
+### 集成一些插件
+    - 文本编辑器
+    - 图表
+    - 地图
+    - 弹出框
+    - 流程图
+    - 树目录
+    - 日程安排
 ### 与后台交互使用Rxjs
+    - 异步编程使用Rxjs
 ### 集成Material Design风格和Bootstrap风格的UI
 
 如果喜欢，还请挪一下鼠标给我一个star~~
 
 # 效果图
+
+![person-list](http://oqtn5nfde.bkt.clouddn.com/person-list.png)
+
+![tab](http://oqtn5nfde.bkt.clouddn.com/tab.png)
+
+![alert](http://oqtn5nfde.bkt.clouddn.com/alert.png)
+
+![calendar](http://oqtn5nfde.bkt.clouddn.com/calendar.png)
+
+![echarts](http://oqtn5nfde.bkt.clouddn.com/echarts.png)
+
+![jsplumb](http://oqtn5nfde.bkt.clouddn.com/jsplumb.png)
+
+![ztree](http://oqtn5nfde.bkt.clouddn.com/ztree.png)
+
+![amap](http://oqtn5nfde.bkt.clouddn.com/amap.png)
 
 PS： 个人项目，一些琐碎的细节没有实现；与后台交互使用的是mock-data，增删改也是模拟成功返回；
 

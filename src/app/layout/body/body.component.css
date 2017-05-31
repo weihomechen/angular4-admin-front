@@ -1,0 +1,10 @@
+.copy-right {
+    text-align: center;
+    margin-left: -12%;
+    padding-top: 10px;
+}
+
+.copy-right-link {
+    cursor: pointer;
+    color: #F38181;
+}

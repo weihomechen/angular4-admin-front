@@ -83,7 +83,7 @@ export class TabControlService {
             link;
         if (~nowLink.indexOf(';')) {
             link = nowLink.substr(0, nowLink.indexOf(';'));
-        }else {
+        } else {
             link = nowLink;
         }
         if (~nowLink.indexOf('foo')) {
@@ -97,6 +97,7 @@ export class TabControlService {
     closeAll() {
         this.tabs.length = 1;
         this.tabsModel.activeTab = 0;
+
         this.router.navigate(['/home']);
     }
 
