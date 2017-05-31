@@ -1,0 +1,15 @@
+<div>
+    <div class="tree-demo-container">
+        <h4>demo1：简单json</h4>
+        <ul id="treeDemo1" class="ztree"></ul>
+    </div>
+    <div class="tree-demo-container">
+        <h4>demo2：可选择</h4>
+        <div>
+            选择节点禁用或启用：
+            <button id="disabledTrue" mdl-button-type="raised" mdl-ripple class="btn-del" mdl-button (click)="toggleToDisabled()">禁用</button>
+            <button id="disabledFalse" mdl-button-type="raised" mdl-ripple class="btn-info" mdl-button (click)="toggleToabled()">取消禁用</button>
+        </div>
+        <ul id="treeDemo2" class="ztree"></ul>
+    </div>
+</div>

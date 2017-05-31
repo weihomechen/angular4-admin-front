@@ -1,5 +1,4 @@
 import { Component, OnInit, Input, ElementRef, ViewChild } from '@angular/core';
-
 import { Options } from 'fullcalendar';
 
 declare var $: any;

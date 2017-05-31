@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-
+import { fadeIn } from '../../animations/fade-in';
 @Component({
     selector: 'app-app-charts',
     templateUrl: './app-charts.component.html',
-    styleUrls: ['./app-charts.component.css']
+    styleUrls: ['./app-charts.component.css'],
+    animations: [fadeIn]
 })
 export class AppChartsComponent implements OnInit {
 
