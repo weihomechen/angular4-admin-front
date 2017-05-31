@@ -47,20 +47,28 @@ ng serve
 
 # 效果图
 
+#### 人员管理
 ![person-list](http://oqtn5nfde.bkt.clouddn.com/person-list.png)
 
+#### Tab管理
 ![tab](http://oqtn5nfde.bkt.clouddn.com/tab.png)
 
+#### 弹出框
 ![alert](http://oqtn5nfde.bkt.clouddn.com/alert.png)
 
+#### 日程安排
 ![calendar](http://oqtn5nfde.bkt.clouddn.com/calendar.png)
 
+#### 图表
 ![echarts](http://oqtn5nfde.bkt.clouddn.com/echarts.png)
 
+#### 流程图
 ![jsplumb](http://oqtn5nfde.bkt.clouddn.com/jsplumb.png)
 
+#### 树结构
 ![ztree](http://oqtn5nfde.bkt.clouddn.com/ztree.png)
 
+#### 地图
 ![amap](http://oqtn5nfde.bkt.clouddn.com/amap.png)
 
 PS： 个人项目，一些琐碎的细节没有实现；与后台交互使用的是mock-data，增删改也是模拟成功返回；
