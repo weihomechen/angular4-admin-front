@@ -13,7 +13,7 @@
         }]
     },
     {
-        "name": "各种工具",
+        "name": "一些工具",
         "icon": "brightness_7",
         "submenu": [{
                 "name": "文本编辑器",
@@ -27,18 +27,28 @@
             },
             {
                 "name": "地图",
-                "icon": "email",
+                "icon": "place",
                 "link": "/amap"
             },
             {
                 "name": "日程安排",
-                "icon": "email",
+                "icon": "date_range",
                 "link": "/calendar"
             },
             {
-                "name": "通讯录",
-                "icon": "group",
-                "link": "/email_group"
+                "name": "弹出框",
+                "icon": "sms",
+                "link": "/alert"
+            },
+            {
+                "name": "树结构",
+                "icon": "device_hub",
+                "link": "/tree"
+            },
+            {
+                "name": "流程图",
+                "icon": "widgets",
+                "link": "/jsplumb"
             }
         ]
     }

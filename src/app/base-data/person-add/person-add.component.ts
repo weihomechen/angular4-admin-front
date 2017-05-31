@@ -6,6 +6,7 @@ import { TabControlService } from '../../layout/header/tab/tabControl.service';
 
 declare var $: any;
 declare var SweetAlert: any;
+declare var Common;
 
 @Component({
     selector: 'app-person-add',
@@ -83,6 +84,7 @@ export class PersonAddComponent implements OnInit {
             .map(position => this.filterPositions(position));
     }
     ngOnInit() {
+        Common.stopLoading();
     }
 
     filterStates(val: string) {

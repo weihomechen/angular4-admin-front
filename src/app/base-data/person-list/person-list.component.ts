@@ -7,6 +7,7 @@ import { IPersonItem } from '../model/table-person-item';
 import { TabControlService } from '../../layout/header/tab/tabControl.service';
 import { PersonManageService } from '../person-manage.service';
 import 'rxjs/add/operator/toPromise';
+import { fadeIn } from '../../animations/fade-in';
 
 declare var SweetAlert: any;
 declare var Common: any;
@@ -14,7 +15,8 @@ declare var Common: any;
 @Component({
     selector: 'app-person-list',
     templateUrl: './person-list.component.html',
-    styleUrls: ['./person-list.component.css']
+    styleUrls: ['./person-list.component.css'],
+    animations: [fadeIn]
 })
 export class PersonListComponent implements OnInit {
 

@@ -26,7 +26,10 @@
             "./assets/global/plugins/sweet-alert/sweetalert.min.js",
             "./assets/global/scripts/sweetalert.js",
             "../node_modules/echarts/dist/echarts.min.js",
-            "..node_modules/fullcalendar/dist/fullcalendar.js"
+            "../node_modules/moment/min/moment.min.js",
+            "../node_modules/fullcalendar/dist/fullcalendar.min.js",
+            "../node_modules/ztree/js/jquery.ztree.all.min.js",
+            "../node_modules/jsplumb/dist/js/jsplumb.min.js"
         ],
         "environmentSource": "environments/environment.ts",
         "environments": {

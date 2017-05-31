@@ -7,6 +7,11 @@
 @import "../node_modules/material-design-icons/iconfont/material-icons.css";
 @import "./assets/global/plugins/sweet-alert/sweetalert.css";
 @import "../node_modules/@angular/material/prebuilt-themes/indigo-pink.css";
+@import '../node_modules/fullcalendar/dist/fullcalendar.min.css';
+@import '../node_modules/fullcalendar/dist/fullcalendar.print.min.css';
+@import '../node_modules/ng2-toastr/bundles/ng2-toastr.min.css';
+@import '../node_modules/ztree/css/ztreeStyle/ztreeStyle.css';
+@import '../node_modules/jsplumb/dist/css/jsplumbtoolkit-defaults.css';
 
 /*页面元素默认样式*/
 
@@ -84,6 +89,10 @@ mdl-layout-content {
     text-align: left;
 }
 
+#toast-container {
+    top: 70px;
+}
+
 
 /*全局类样式*/
 
@@ -115,7 +124,7 @@ mdl-layout-content {
 }
 
 .table-footer .mdl-button {
-    min-width: 30px;
+    min-width: 40px;
     padding: 0 8px;
     border-radius: 8px;
 }
@@ -187,12 +196,16 @@ mdl-layout-content {
 }
 
 .btn-prev {
+    height: 30px;
+    line-height: 30px;
     color: #fff;
     background-color: #29C6CD;
     border-color: #208992;
 }
 
 .btn-next {
+    height: 30px;
+    line-height: 30px;
     color: #fff;
     background-color: #29C6CD;
     border-color: #208992;
@@ -216,7 +229,12 @@ mdl-layout-content {
 }
 
 .table-target-page {
-    width: 25px;
+    display: inline-block;
+    width: 35px;
+    height: 30px;
+    color: #000;
+    text-align: center;
+    padding: 0;
 }
 
 .display-form {
@@ -306,20 +324,27 @@ mdl-layout-content {
 .loading-container {
     position: fixed;
     z-index: 15;
-    top: 30%;
-    left: 40%;
+    top: 65px;
+    left: 50%;
+}
+
+.first-loading {
+    position: fixed;
+    z-index: 15;
+    top: 40%;
+    left: 45%;
 }
 
 .loading-dot {
     display: inline-block;
     z-index: 15;
-    background: #14FFEC;
-    height: 5px;
-    width: 5px;
+    background: #00ADB5;
+    height: 6px;
+    width: 6px;
     opacity: 0;
-    border-radius: 50%;
-    transform: translateX(-800px);
-    background-color: #08D9D6
+    border-radius: 30%;
+    transform: translateX(-900px);
+    background-color: #00ADB5
 }
 
 .dot-1 {

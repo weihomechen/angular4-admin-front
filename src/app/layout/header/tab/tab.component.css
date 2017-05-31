@@ -34,7 +34,7 @@ md2-tabs {
     position: absolute;
     top: 0;
     height: 100%;
-    width: 32px;
+    width: 30px;
     padding: 10px 0;
     z-index: 2;
     cursor: pointer;
@@ -57,15 +57,14 @@ md2-tabs {
 .md2-prev-button .prev-icon,
 .md2-next-button .next-icon {
     display: block;
-    width: 10px;
-    height: 10px;
+    width: 12px;
+    height: 12px;
     font-size: 0;
-    border-width: 0 0 2px 2px;
+    border-width: 0 0 4px 4px;
     border-style: solid;
-    border-color: #757575;
     border-radius: 1px;
     transform: rotate(45deg);
-    margin: 8px;
+    margin: 6px;
 }
 
 .md2-next-button .next-icon {
@@ -75,7 +74,7 @@ md2-tabs {
 .md2-tabs-canvas {
     position: relative;
     height: 100%;
-    /*overflow: hidden;*/
+    overflow: hidden;
     display: block;
     outline: none;
 }

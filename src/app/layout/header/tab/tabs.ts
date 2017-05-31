@@ -114,7 +114,7 @@ export class Md2Tabs implements OnInit, AfterContentInit {
     private _isInitialized = false;
     private _focusIndex = 0;
     private _selectedIndex = 0;
-    private shouldPaginate = false;
+    protected shouldPaginate = false;
     private offsetLeft = 0;
     private inkBarLeft = '0';
     private inkBarWidth = '0';
@@ -162,7 +162,8 @@ export class Md2Tabs implements OnInit, AfterContentInit {
 
     ngOnInit(): void {
         this.tabsModel = this.tabControlService.tabsModel;
-        this.element.canvas.style.width = 1240 + 'px';
+        let windowWidth = window.innerWidth;
+        this.element.canvas.style.width = windowWidth - 340 + 'px';
         this.router.navigateByUrl('home');
     }
 
@@ -315,7 +316,7 @@ export class Md2Tabs implements OnInit, AfterContentInit {
         });
         this.shouldPaginate = canvasWidth < 0;
         // TODO: need improve
-        if (this.tabsModel.tabs.length <= 4) {
+        if (this.tabsModel.tabs.length <= 6) {
             this.shouldPaginate = false;
         }
     }

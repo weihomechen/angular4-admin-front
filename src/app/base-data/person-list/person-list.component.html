@@ -1,4 +1,4 @@
-<div class="portlet display-list-container">
+<div class="portlet display-list-container" [@fadeIn]="'active'">
     <div class="portlet-header display-list-header">
         <div class="table-toolbar">
             <div class="toolbar-btns">
@@ -9,12 +9,9 @@
             </div>
 
             <div class="toolbar-search">
-                    <mdl-textfield type="text" label="姓名" [(ngModel)]="searchObj.name" autocomplete="name" (blur)="onInputBlur($event)" (focus)="onInputFocus($event)"
-                        (keyup)="onInputKeyup($event)" floating-label></mdl-textfield>
-                    <mdl-textfield type="text" label="队伍" [(ngModel)]="searchObj.team" autocomplete="name" (blur)="onInputBlur($event)" (focus)="onInputFocus($event)"
-                        (keyup)="onInputKeyup($event)" floating-label></mdl-textfield>
-                    <mdl-textfield type="text" label="账号" [(ngModel)]="searchObj.account" autocomplete="name" (blur)="onInputBlur($event)" (focus)="onInputFocus($event)"
-                        (keyup)="onInputKeyup($event)" floating-label></mdl-textfield>
+                <mdl-textfield type="text" label="姓名" [(ngModel)]="searchObj.name" autocomplete="name" (blur)="onInputBlur($event)" (focus)="onInputFocus($event)" (keyup)="onInputKeyup($event)" floating-label></mdl-textfield>
+                <mdl-textfield type="text" label="队伍" [(ngModel)]="searchObj.team" autocomplete="name" (blur)="onInputBlur($event)" (focus)="onInputFocus($event)" (keyup)="onInputKeyup($event)" floating-label></mdl-textfield>
+                <mdl-textfield type="text" label="账号" [(ngModel)]="searchObj.account" autocomplete="name" (blur)="onInputBlur($event)" (focus)="onInputFocus($event)" (keyup)="onInputKeyup($event)" floating-label></mdl-textfield>
                 <button mdl-button mdl-button-type="fab" (click)="search()" class="btn-search">
                     <i class="fa fa-search"></i>
                 </button>
@@ -26,15 +23,14 @@
     </div>
     <div class="portlet-body display-list-body">
         <div class="table-container">
-            <mdl-table-selectable mdl-shadow="2" id='person_manage_table' [table-model]="tableModel" [table-model-selected]="selected"
-                (table-model-selectionChanged)="selectionChanged($event)">
+            <mdl-table-selectable mdl-shadow="2" id='person_manage_table' [table-model]="tableModel" [table-model-selected]="selected" (table-model-selectionChanged)="selectionChanged($event)">
             </mdl-table-selectable>
             <div class="table-footer">
                 <span>共</span><span class="total-size">8</span><span>条</span>
                 <span class="now-page">1</span>/<span class="total-page">1</span>页
                 <span>第</span>
                 <button mdl-button mdl-button-type="raised" mdl-ripple class="btn-prev"><i class="fa fa-chevron-left"></i></button>
-                <input class="table-target-page">
+                <input class="form-control table-target-page" value="1">
                 <button mdl-button mdl-button-type="raised" mdl-ripple class="btn-next"><i class="fa fa-chevron-right"></i></button>
                 <span>页</span>
             </div>

@@ -17,7 +17,9 @@ import { AppCkeditorComponent } from './share/app-ckeditor/app-ckeditor.componen
 import { AppChartsComponent } from './share/app-charts/app-charts.component';
 import { AmapDemoComponent } from './share/app-amap/amap-demo.component';
 import { CalendarDemoComponent } from './share/app-calendar/calendar-demo.component';
-
+import { AppAlertComponent } from './share/app-alert/app-alert.component';
+import { AppTreeComponent } from './share/app-tree/app-tree.component';
+import { AppJsplumbComponent } from './share/app-jsplumb/app-jsplumb.component';
 
 const appRoutes: Routes = [
     {
@@ -75,6 +77,18 @@ const appRoutes: Routes = [
     {
         path: 'calendar',
         component: CalendarDemoComponent
+    },
+    {
+        path: 'alert',
+        component: AppAlertComponent
+    },
+    {
+        path: 'tree',
+        component: AppTreeComponent
+    },
+    {
+        path: 'jsplumb',
+        component: AppJsplumbComponent
     },
     {
         path: '',

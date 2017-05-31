@@ -78,12 +78,13 @@ export class TabControlService {
 
     // 刷新当前页
     reloadNowPage() {
-        debugger
-        Common.startLoading();
+        // Common.startLoading();
         let nowLink = window.location.pathname,
             link;
         if (~nowLink.indexOf(';')) {
             link = nowLink.substr(0, nowLink.indexOf(';'));
+        }else {
+            link = nowLink;
         }
         if (~nowLink.indexOf('foo')) {
             this.router.navigate([link, { reuse: 'false' }]);
