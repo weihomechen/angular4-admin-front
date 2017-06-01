@@ -97,7 +97,6 @@ export class TabControlService {
     closeAll() {
         this.tabs.length = 1;
         this.tabsModel.activeTab = 0;
-
         this.router.navigate(['/home']);
     }
 
@@ -109,11 +108,10 @@ export class TabControlService {
         }
         const retainList = [],
             currentTabIndex = this.tabsModel.activeTab;
-        retainList.push(this.tabs[0]);
-        retainList.push(this.tabs[currentTabIndex]);
-        this.tabs = retainList;
+        this.tabsModel.tabs[1] = this.tabsModel.tabs[currentTabIndex];
+        this.tabs.length = 2;
         this.tabsModel.activeTab = 1;
-        this.router.navigate([this.tabs[1].link]);
+        this.router.navigate([this.tabsModel.tabs[1].link]);
     }
 
     // 关闭tab

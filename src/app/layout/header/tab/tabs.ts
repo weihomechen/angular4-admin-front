@@ -131,7 +131,7 @@ export class Md2Tabs implements OnInit, AfterContentInit {
             this._updateInkBar();
             if (this.tabs) {
                 const tabs = this.tabs.toArray();
-                if (!tabs[value].disabled) {
+                if (tabs[value] && !tabs[value].disabled) {
                     tabs.forEach(tab => tab.active = false);
                     tabs[value].active = true;
                 }
@@ -184,16 +184,19 @@ export class Md2Tabs implements OnInit, AfterContentInit {
     // 关闭所有页面
     closeAll() {
         this.tabControlService.closeAll();
+        this.adjustOffset();
     }
 
     // 关闭其它页面
     closeOther() {
         this.tabControlService.closeOther();
+        this.adjustOffset();
     }
 
     // 关闭当前页面
     closeNow() {
         this.tabControlService.closeTab();
+        this.adjustOffset();
     }
 
     /**
@@ -316,7 +319,7 @@ export class Md2Tabs implements OnInit, AfterContentInit {
         this.element.tabs.forEach((tab: any) => {
             canvasWidth -= tab.offsetWidth;
         });
-        this.shouldPaginate = canvasWidth < 0;
+        this.shouldPaginate = canvasWidth < -70;
 
         const manageBtn = $('#tab_manage_btn'),
             canvas = $('.md2-tabs-canvas');

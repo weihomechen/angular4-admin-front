@@ -59,10 +59,13 @@ export class UserService implements CanActivate {
 
     public logout(): void {
         this.tabControlService.closeAll();
-        localStorage.removeItem('currentUser');
-        this.userId = null;
-        this.subject.next(Object.assign({}));
-        this.router.navigate([{ outlets: { user: ['user-login'] } }]);
+        setTimeout(() => {
+            localStorage.removeItem('currentUser');
+            this.userId = null;
+            this.subject.next(Object.assign({}));
+            this.router.navigate([{ outlets: { user: ['user-login'] } }]);
+        }, 100);
+
     }
 
     public forgetPwd(email: string): Observable<any> {
@@ -93,8 +96,8 @@ export class UserService implements CanActivate {
     }
 
     // 检测邮箱是否已注册
-    public isEmailUsed(email: string){
-        return Observable.create((observer)=>{
+    public isEmailUsed(email: string) {
+        return Observable.create((observer) => {
             observer.next(false);
         })
     }
