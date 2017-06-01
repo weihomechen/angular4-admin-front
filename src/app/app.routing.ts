@@ -25,7 +25,7 @@ const appRoutes: Routes = [
     {
         path: 'home',
         component: HomeComponent,
-        // canActivate: [UserService]
+        canActivate: [UserService]
     },
     {
         path: 'person-list',
