@@ -112,7 +112,7 @@ export class PersonListComponent implements OnInit {
                     delList.push(person.id);
                 });
                 this.personManageService.delPersons(delList).subscribe({
-                    next: x => SweetAlert.alert('删除人员成功'),
+                    next: x => { SweetAlert.alert('删除人员成功'); this.initTable(); },
                     error: error => SweetAlert.warning('删除失败'),
                     complete: () => SweetAlert.alert('完成')
                 });

@@ -15,7 +15,8 @@
     {
         "name": "一些工具",
         "icon": "brightness_7",
-        "submenu": [{
+        "submenu": [
+            {
                 "name": "文本编辑器",
                 "icon": "mode_edit",
                 "link": "/ckeditor"
