@@ -6,14 +6,14 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { MdlModule } from '@angular-mdl/core';
 import { ToastModule } from 'ng2-toastr/ng2-toastr';
-import { CKEditorModule } from 'ng2-ckeditor';
+// import { CKEditorModule } from 'ng2-ckeditor';
 
 import { AmapComponent } from './app-amap/amap/amap.component';
 import { CalendarComponent } from './app-calendar/calendar/calendar.component';
 import { AngularEchartsModule } from 'ngx-echarts';
 
 import { FormControlComponent } from '../user/user-info/dynamic-form/form-control.component';
-import { AppCkeditorComponent } from './app-ckeditor/app-ckeditor.component';
+// import { AppCkeditorComponent } from './app-ckeditor/app-ckeditor.component';
 import { AppChartsComponent } from './app-charts/app-charts.component';
 import { AmapDemoComponent } from './app-amap/amap-demo.component';
 import { CalendarDemoComponent } from './app-calendar/calendar-demo.component';
@@ -31,13 +31,13 @@ import { AppJsplumbComponent } from './app-jsplumb/app-jsplumb.component';
         ReactiveFormsModule,
         MdlModule,
         ToastModule.forRoot(),
-        CKEditorModule,
+        // CKEditorModule,
         AngularEchartsModule,
         // RouterModule.forChild(shareRoutes)
     ],
     declarations: [
         FormControlComponent,
-        AppCkeditorComponent,
+        // AppCkeditorComponent,
         AppChartsComponent,
         AmapComponent,
         AmapDemoComponent,
@@ -50,7 +50,7 @@ import { AppJsplumbComponent } from './app-jsplumb/app-jsplumb.component';
     exports: [
         MdlModule,
         FormControlComponent,
-        AppCkeditorComponent
+        // AppCkeditorComponent
     ]
 })
 export class ShareModule { }

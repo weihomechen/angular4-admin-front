@@ -17,11 +17,6 @@
         "icon": "brightness_7",
         "submenu": [
             {
-                "name": "文本编辑器",
-                "icon": "mode_edit",
-                "link": "/ckeditor"
-            },
-            {
                 "name": "图表",
                 "icon": "equalizer",
                 "link": "/charts"
