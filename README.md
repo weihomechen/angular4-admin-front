@@ -47,6 +47,8 @@ ng serve
 
 # 效果图
 
+![0.0.1_alpha](http://oqtn5nfde.bkt.clouddn.com/0.0.1_alpha.gif)
+
 #### 人员管理
 ![person-list](http://oqtn5nfde.bkt.clouddn.com/person-list.png)
 
@@ -70,10 +72,6 @@ ng serve
 
 #### 地图
 ![amap](http://oqtn5nfde.bkt.clouddn.com/amap.png)
-
-#### 奇怪的报错
-如果运行时遇到下面这个错误，请到`share.module`下将`CKEditorModule`剪切后再黏贴，目前没搞明白为什么还有这种操作，如果你知道还请告诉我一下~
-![error](http://oqtn5nfde.bkt.clouddn.com/error.png) 
 
 PS： 个人项目，一些琐碎的细节没有实现；与后台交互使用的是mock-data，增删改也是模拟成功返回；
 

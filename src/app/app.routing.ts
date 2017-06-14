@@ -13,7 +13,7 @@ import { UserInfoComponent } from './user/user-info/user-info.component';
 import { UserChangePwdComponent } from './user/user-change-pwd/user-change-pwd.component';
 import { UserService } from './user/user.service';
 
-// import { AppCkeditorComponent } from './share/app-ckeditor/app-ckeditor.component';
+import { AppCkeditorComponent } from './share/app-ckeditor/app-ckeditor.component';
 import { AppChartsComponent } from './share/app-charts/app-charts.component';
 import { AmapDemoComponent } from './share/app-amap/amap-demo.component';
 import { CalendarDemoComponent } from './share/app-calendar/calendar-demo.component';
@@ -66,10 +66,10 @@ const appRoutes: Routes = [
         path: 'charts',
         component: AppChartsComponent
     },
-    // {
-    //     path: 'ckeditor',
-    //     component: AppCkeditorComponent
-    // },
+    {
+        path: 'ckeditor',
+        component: AppCkeditorComponent
+    },
     {
         path: 'amap',
         component: AmapDemoComponent
