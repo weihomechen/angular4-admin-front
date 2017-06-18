@@ -47,7 +47,7 @@ ng serve
 
 # 效果图
 
-![0.0.1_alpha](http://oqtn5nfde.bkt.clouddn.com/0.0.1_alpha.gif)
+![0.1.0_alpha](https://github.com/weihomechen/angular4-admin/blob/master/document/0.1.0_alpha.gif)
 
 #### 人员管理
 ![person-list](http://oqtn5nfde.bkt.clouddn.com/person-list.png)
